@@ -24,7 +24,7 @@ public class MaquinaSortejos {
         plenarBombo1();
         plenarBombo2();
         for (int i=0; i<numeros.length-1; i++){
-            while (random == comprovacio) {
+            while (numeros [i] == comprovacio) {
                 random = Lib.random(0, 48);
             }
             numeros[i] = bombo1[random];
