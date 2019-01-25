@@ -14,7 +14,6 @@ public class MaquinaSortejos {
 
     public int [] primitivaManual(){
         int random;
-        int contador = 0;
         int [] numsJugador = new int[8];
         boolean condicion = true;
         int numero;
@@ -35,15 +34,12 @@ public class MaquinaSortejos {
                     if (numero == numsJugador[z]) {
                         condicion = false;
                         Lib.mensajeError();
-                        contador++;
                     }
                 }
-                contador = 0;
             }while (!condicion);
             numsJugador[i] = numero;
             posicion++;
         }
-
         do {
             random = Lib.random(0,48);
             condicion = true;
