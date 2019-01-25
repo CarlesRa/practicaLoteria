@@ -7,36 +7,64 @@ import java.util.Scanner;
 
 public class Principal {
     private static int eleccio;
+    private static int eleccio2;
     private static Scanner lec;
     private static MaquinaSortejos maquina;
 
     public static void main(String[] args) {
-
         maquina = new MaquinaSortejos();
         lec = new Scanner(System.in);
-        do {
-            eleccio = mostrarMenu();
-            switch (eleccio) {
-                case 0:
-                    break;
+        do{
+            eleccio = menuInicial();
+            switch (eleccio){
                 case 1:
-                    System.out.println(Arrays.toString(maquina.jocUnic()));
-                    Lib.continuar();
                     break;
                 case 2:
-                    Lib.continuar();
                     break;
                 case 3:
-                    Lib.continuar();
-                    break;
-                case 4:
-                    Lib.continuar();
-                    break;
-                case 5:
-                    Lib.continuar();
+                    do {
+                        eleccio2 = mostrarMenu();
+                        switch (eleccio2) {
+                            case 0:
+                                break;
+                            case 1:
+                                System.out.println(Arrays.toString(maquina.jocUnic()));
+                                Lib.continuar();
+                                break;
+                            case 2:
+                                Lib.continuar();
+                                break;
+                            case 3:
+                                Lib.continuar();
+                                break;
+                            case 4:
+                                Lib.continuar();
+                                break;
+                            case 5:
+                                Lib.continuar();
+                                break;
+                        }
+                    }while (eleccio2 != 0);
                     break;
             }
-        }while (eleccio != 0);
+        }while(eleccio != 3);
+
+    }
+
+    public  static int menuInicial(){
+        int eleccio;
+        do {
+            System.out.println("*************************");
+            System.out.println("*******BENVINGUT*********");
+            System.out.println("1-Primitiva manual...");
+            System.out.println("2-Primitiva Aleatoria... ");
+            System.out.println("3-Jugar!!!...");
+            System.out.println("*************************");
+            System.out.print("Tria una opció: ");
+            eleccio = lec.nextInt();
+            lec.nextLine();
+            return eleccio;
+        } while (eleccio >= 0 || eleccio <= 5);
     }
 
     public static int mostrarMenu() {

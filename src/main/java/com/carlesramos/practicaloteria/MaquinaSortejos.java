@@ -20,17 +20,18 @@ public class MaquinaSortejos {
     public int [] jocUnic(){
         int [] numeros = new int[8];
         int random=0;
-        int comprovacio=0;
+        int posicioFinal=49;
         plenarBombo1();
         plenarBombo2();
-        for (int i=0; i<numeros.length-1; i++){
-            while (numeros [i] == comprovacio) {
-                random = Lib.random(0, 48);
+        for (int i=0; i<numeros.length; i++){
+            random = Lib.random(0,posicioFinal);
+            numeros [i] = bombo1 [random];
+            for (int x=random; x<bombo1.length-1; x++){
+                bombo1[x]=bombo1[x+1];
             }
-            numeros[i] = bombo1[random];
-            comprovacio = random;
+            posicioFinal--;
         }
-        numeros [7] = bombo2 [Lib.random(0,9)];
+
         return numeros;
     }
 
