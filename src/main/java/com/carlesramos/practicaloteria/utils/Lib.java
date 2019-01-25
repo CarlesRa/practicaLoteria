@@ -20,18 +20,18 @@ public class Lib {
     public  static void mensajeError(){
 
         System.out.print(limpiarPantalla()+letraRoja()+
-                "Dato erroneo, pulsa intro para continuar: "+ reiniciarColorLetra());
+                "Dada erronea, els numeros van del 0 al 49 y no se poden repetir: "+ reiniciarColorLetra());
         lec.nextLine();
     }
 
     public static void mensajeSalida(){
-        System.out.print("Saliendo de la aplicación, pulsa intro para continuar: ");
+        System.out.print("Eixint intro per continuar: ");
 
         lec.nextLine();
     }
 
     public static  void continuar(){
-        System.out.println("Pulsa intro para continuar: ");
+        System.out.println("intro per continuar: ");
         lec.nextLine();
     }
 
