@@ -2,25 +2,23 @@ package com.carlesramos.practicaloteria;
 import com.carlesramos.practicaloteria.utils.Lib;
 import java.util.Arrays;
 import java.util.Scanner;
-public class MaquinaSortejos {
-    private int [] bombo1;
-    private int [] bombo2;
+public class Administracio {
+    public enum premis{ESPECIAL,PRIMERA,SEGONA,TERCERA,CUARTA,QUINTA, NO_PREMIAT}
     private Scanner lec;
-    public MaquinaSortejos(){
-        bombo1 = new int[49];
-        bombo2 = new int[10];
+    private Sorteig sorteig;
+    public Administracio(){
+        sorteig = new Sorteig ();
         lec = new Scanner(System.in);
     }
 
     public int [] primitivaManual(){
         int random;
-        int [] numsJugador = new int[8];
-        boolean condicion = true;
+        int [] boletoJugador = new int[6];
+        boolean estaRepetido = true;
         int numero;
-        int posicion = 0;
-        for(int i=0; i<numsJugador.length-2; i++) {
+        for(int i=0; i<boletoJugador.length; i++) {
             do {
-                condicion = true;
+                estaRepetido = true;
                 do {
                     System.out.print("Introduix el número " + (i + 1) + ":");
                     numero = lec.nextInt();
@@ -30,66 +28,69 @@ public class MaquinaSortejos {
                     }
                 }while (numero<0 || numero>49);
 
-                for (int z=0; z<posicion; z++){
-                    if (numero == numsJugador[z]) {
-                        condicion = false;
+                for (int z=0; z<i; z++){
+                    if (numero == boletoJugador[z]) {
+                        estaRepetido = false;
                         Lib.mensajeError();
                     }
                 }
-            }while (!condicion);
-            numsJugador[i] = numero;
-            posicion++;
+            }while (!estaRepetido);
+            boletoJugador[i] = numero;
         }
         do {
             random = Lib.random(0,48);
-            condicion = true;
-            for (int i=0; i<numsJugador.length-1; i++){
+            estaRepetido = true;
+            for (int i=0; i<boletoJugador.length; i++){
 
-                    if (random == numsJugador[i]) {
+                    if (random == boletoJugador[i]) {
                         random = Lib.random(0, 48);
-                        condicion = false;
+                        estaRepetido = false;
                     }
-
             }
-        }while(!condicion);
-        numsJugador[6]=random;
-        plenarBombo2();
-        numsJugador[7]=bombo2[Lib.random(0,9)];
-        System.out.println(Arrays.toString(numsJugador));
-        return numsJugador;
+        }while(!estaRepetido);
+        return boletoJugador;
     }
-    public int [] jocUnic(){
-        int [] numeros = new int[8];
+    public int [] primitivaAleatoria(){
+        int [] numeros = new int[6];
         int random=0;
-        int posicioFinal=49;
-        plenarBombo1();
-        plenarBombo2();
+        int posicioFinal=48;
+        sorteig.plenarBombo1();
         for (int i=0; i<numeros.length; i++){
             random = Lib.random(0,posicioFinal);
-            numeros [i] = bombo1 [random];
-            for (int x=random; x<bombo1.length-1; x++){
-                bombo1[x]=bombo1[x+1];
-            }
+            numeros [i] = sorteig.getBombo1()[random];
+            sorteig.getBombo1()[random] = sorteig.getBombo1()[posicioFinal];
             posicioFinal--;
         }
-
         return numeros;
     }
 
-    public void plenarBombo1(){
-        int numsBombo1=1;
-        for (int i=0; i<bombo1.length; i++){
-            bombo1[i]=numsBombo1;
-            numsBombo1++;
+    //comprovar si el el numero esta premiat e indicar el premi.
+    public void coomprovarPremi(int [] numeroClient,int [] numeroSorteig, int reintegroJugador, int reintegroBombo){
+        int contador = 0;
+        boolean aciertoComplementario;
+        for (int i=0; i<numeroClient.length; i++){
+            for (int z=0; z<numeroSorteig.length-1;z++){
+                if(numeroClient[i]==numeroSorteig[z]) {
+                    contador++;
+                }
+                if(numeroClient[i] == numeroSorteig [6]){
+                    aciertoComplementario = true;
+                }
+            }
         }
-        for (int z=0; z<bombo2.length; z++){
-            bombo2[z]=z;
+        if (contador == 6 && reintegroJugador == reintegroBombo){
+            System.out.println("Ha eixit: " + numeroSorteig + " Voste te: " + numeroClient);
+            System.out.println("El seu premi es: " + premis.ESPECIAL);
+            return;
+        }
+        //goto meter los reintegros
+        if (contador == 0){
+            System.out.println(" Ha eixit: "+Arrays.toString(numeroSorteig)
+                    +" voste te: "+Arrays.toString(numeroClient));
+            System.out.println("El seu premi es: "+premis.NO_PREMIAT);
+
         }
     }
 
-    public void plenarBombo2(){
-        for (int z=0; z<bombo2.length; z++){
-            bombo2[z]=z;
-        }
-    }
+
 }

@@ -8,58 +8,78 @@ public class Principal {
     private static int eleccio;
     private static int eleccio2;
     private static Scanner lec;
-    private static MaquinaSortejos maquina;
+    private static Administracio maquinaAdmin;
+    private static Sorteig sorteig;
+    private static int [] numeroClient;
 
     public static void main(String[] args) {
-        maquina = new MaquinaSortejos();
+        maquinaAdmin = new Administracio();
+        sorteig = new Sorteig();
         lec = new Scanner(System.in);
-        eleccio = menuInicial();
-        switch (eleccio) {
-            case 1:
-                maquina.primitivaManual();
-                System.out.println("correcte");
-                Lib.continuar();
-                break;
-            case 2:
-                break;
-            case 3:
-        }
         do {
-            eleccio2 = mostrarMenu();
-            switch (eleccio2) {
-                case 0:
-                    break;
+            eleccio = menuInicial();
+            switch (eleccio) {
                 case 1:
-                    System.out.println(Arrays.toString(maquina.jocUnic()));
+                    numeroClient = maquinaAdmin.primitivaManual();
+                    System.out.println("Primitiva Generada: " + Arrays.toString(numeroClient));
                     Lib.continuar();
                     break;
                 case 2:
+                    numeroClient = maquinaAdmin.primitivaAleatoria();
+                    System.out.println("Primitiva Generada: " + Arrays.toString(numeroClient));
                     Lib.continuar();
                     break;
                 case 3:
-                    Lib.continuar();
-                    break;
-                case 4:
-                    Lib.continuar();
-                    break;
-                case 5:
-                    Lib.continuar();
-                    break;
-                    }
-        }while (eleccio2 != 0);
+                    do {
+                        eleccio2 = mostrarMenu();
+                        switch (eleccio2) {
+                            case 0:
+                                break;
+                            case 1:
+                                maquinaAdmin.coomprovarPremi(numeroClient,sorteig.getNumeroSorteig()
+                                        , sorteig.getReintegroJugador(), sorteig.getReintegroBombo());
+
+                                Lib.continuar();
+                                break;
+                            case 2:
+                                Lib.continuar();
+                                break;
+                            case 3:
+                                Lib.continuar();
+                                break;
+                            case 4:
+                                Lib.continuar();
+                                break;
+                            case 5:
+                                Lib.continuar();
+                                break;
+                        }
+                        if (eleccio2<0 || eleccio2>5){
+                            Lib.mensajeError();
+                        }
+                    }while (eleccio2 != 0);
+            }
+            if (eleccio<1 || eleccio>3){
+                Lib.mensajeError();
+            }
+        }while (eleccio != 0);
+
     }
 
     public  static int menuInicial(){
-        int eleccio;
+        do {
+            int eleccio;
             System.out.println("*************************");
             System.out.println("*******BENVINGUT*********");
             System.out.println("1-Primitiva manual...");
-            System.out.println("2-Primitiva Aleatoria... ");
+            System.out.println("2-Primitiva Aleatoria...");
+            System.out.println("3-JUGAR!!...");
             System.out.println("*************************");
             System.out.print("Tria una opció: ");
             eleccio = lec.nextInt();
             lec.nextLine();
             return eleccio;
+        }while (eleccio >=0 || eleccio <=2);
     }
 
     public static int mostrarMenu() {
