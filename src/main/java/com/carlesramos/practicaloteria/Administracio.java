@@ -81,11 +81,10 @@ public class Administracio {
         if (contador == 6 && reintegroJugador == reintegroBombo){
             System.out.println("Ha eixit: " + numeroSorteig + " Voste te: " + numeroClient);
             System.out.println("El seu premi es: " + premis.ESPECIAL);
-            return;
         }
         //goto meter los reintegros
         if (contador == 0){
-            System.out.println(" Ha eixit: "+Arrays.toString(numeroSorteig)
+            System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig)
                     +" voste te: "+Arrays.toString(numeroClient));
             System.out.println("El seu premi es: "+premis.NO_PREMIAT);
 
