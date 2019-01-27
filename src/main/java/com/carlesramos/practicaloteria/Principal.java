@@ -97,7 +97,7 @@ public class Principal {
                                 Lib.continuar();
                                 break;
                             case 4:
-                                for (int i=0; i<100000000; i++){
+                                for (int i=0; i<10000; i++){
                                     sorteig = new Sorteig();
                                     numeroSorteig = sorteig.generarNumeroSorteig();
                                     reintegroBombo = sorteig.getReintegroBombo();
@@ -114,7 +114,6 @@ public class Principal {
                                 System.out.print("Cuarta categoria: " + maquinaAdmin.getContadorCuart() + "\n");
                                 System.out.print("Quinta categoria: " + maquinaAdmin.getContadorCinque() + "\n");
                                 System.out.print("Reintegraments: " + maquinaAdmin.getContadorReintegros() + "\n");
-                                Lib.continuar();
                                 maquinaAdmin.setContadorJugades(0);
                                 maquinaAdmin.setContadorEspecial(0);
                                 maquinaAdmin.setContadorPrimer(0);
@@ -123,6 +122,7 @@ public class Principal {
                                 maquinaAdmin.setContadorCuart(0);
                                 maquinaAdmin.setContadorCinque(0);
                                 maquinaAdmin.setContadorReintegros(0);
+                                Lib.continuar();
                                 break;
                             case 5:
                                 maquinaAdmin.setEstaPremiat(false);
