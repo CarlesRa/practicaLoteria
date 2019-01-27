@@ -154,8 +154,8 @@ public class Administracio {
 
 
     }
-    public void coomprovarPremi(int [] numeroClient,int [] numeroSorteig, int reintegroJugador
-            , int reintegroBombo,int complementari, String noReintegrament){
+    public void coomprovarPremi(int [] numeroClient, int [] numeroSorteig, int reintegroJugador
+            , int reintegroBombo, int complementari, String noReintegrament){
         opcioPremi = 0;
         int contador = 0;
         boolean aciertoComplementario = false;
@@ -212,6 +212,28 @@ public class Administracio {
         }
 
 
+    }
+
+    public void coomprovarPremiEspecial(int [] numeroClient, int [] numeroSorteig, int reintegroJugador
+            , int reintegroBombo, int complementari){
+        opcioPremi = 0;
+        int contador = 0;
+        boolean aciertoComplementario = false;
+        for (int i=0; i<numeroClient.length; i++){
+            for (int z=0; z<numeroSorteig.length-1;z++){
+                if(numeroClient[i] == complementari){
+                    aciertoComplementario = true;
+                }
+                if(numeroClient[i]==numeroSorteig[z]) {
+                    contador++;
+                }
+            }
+        }
+        if (contador == 6 && reintegroJugador == reintegroBombo){
+
+            opcioPremi = 1;
+            estaPremiat = true;
+        }
     }
 
     public void mostrarPremi(int [] numeroSorteig, int reintegroBombo, int complementari){

@@ -15,6 +15,7 @@ public class Principal {
     private static int reintegroBombo;
     private static int complementari;
     private static int contadorJugades;
+    private static int contadorPremis;
     public static void main(String[] args) {
         maquinaAdmin = new Administracio();
         lec = new Scanner(System.in);
@@ -60,10 +61,10 @@ public class Principal {
                                     sorteig = new Sorteig();
                                     numeroSorteig = sorteig.generarNumeroSorteig();
                                     reintegroBombo = sorteig.getReintegroBombo();
+                                    complementari = sorteig.getComplementari();
                                     maquinaAdmin.coomprovarPremi(boletoJuagador,numeroSorteig
                                             , maquinaAdmin.getReintegroJugador(), reintegroBombo, complementari);
                                     if (maquinaAdmin.getEstaPremiat()){
-                                        contadorJugades++;
                                         System.out.println("Ha fet un total de: " + contadorJugades + " jugades.");
                                         maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo,complementari);
                                     }
@@ -78,10 +79,10 @@ public class Principal {
                                     sorteig = new Sorteig();
                                     numeroSorteig = sorteig.generarNumeroSorteig();
                                     reintegroBombo = sorteig.getReintegroBombo();
+                                    complementari = sorteig.getComplementari();
                                     maquinaAdmin.coomprovarPremi(boletoJuagador,numeroSorteig
                                             , maquinaAdmin.getReintegroJugador(), reintegroBombo, complementari, "sense Reintegro");
                                     if (maquinaAdmin.getEstaPremiat()){
-                                        contadorJugades++;
                                         System.out.println("Ha fet un total de: " + contadorJugades + " jugades.");
                                         maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo,complementari);
 
@@ -92,9 +93,41 @@ public class Principal {
                                 contadorJugades = 0;
                                 break;
                             case 4:
+                                for (int i=0; i<10000; i++){
+                                    sorteig = new Sorteig();
+                                    numeroSorteig = sorteig.generarNumeroSorteig();
+                                    reintegroBombo = sorteig.getReintegroBombo();
+                                    complementari = sorteig.getComplementari();
+                                    maquinaAdmin.coomprovarPremi(boletoJuagador,numeroSorteig
+                                            , maquinaAdmin.getReintegroJugador(), reintegroBombo, complementari);
+                                    if (maquinaAdmin.getEstaPremiat()){
+                                        maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo,complementari);
+                                        contadorPremis++;
+                                    }
+                                    contadorJugades++;
+
+                                }
+                                System.out.println("En: " + contadorJugades + " jugades." + " Ha tret: "
+                                + contadorPremis + " premis.");
                                 Lib.continuar();
                                 break;
                             case 5:
+                                maquinaAdmin.setEstaPremiat(false);
+                                while (!maquinaAdmin.getEstaPremiat()){
+                                    sorteig = new Sorteig();
+                                    numeroSorteig = sorteig.generarNumeroSorteig();
+                                    reintegroBombo = sorteig.getReintegroBombo();
+                                    complementari = sorteig.getComplementari();
+                                    maquinaAdmin.coomprovarPremiEspecial(boletoJuagador,numeroSorteig
+                                            , maquinaAdmin.getReintegroJugador(), reintegroBombo, complementari);
+                                    if (maquinaAdmin.getEstaPremiat()){
+                                        maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo,complementari);
+                                    }
+                                    contadorJugades++;
+                                }
+                                System.out.println("Ha fet un total de: " + contadorJugades + " jugades.");
+
+
                                 Lib.continuar();
                                 break;
                         }
