@@ -5,15 +5,20 @@ import java.util.Scanner;
 public class Administracio {
     public enum premis{ESPECIAL,PRIMERA,SEGONA,TERCERA,CUARTA,QUINTA,DEVOLUCIÓ_DINES, NO_PREMIAT}
     private Scanner lec;
-    private Sorteig sorteig;
+    private Sorteig reintegroBombo;
     private int reintegroJugador;
     private boolean estaPremiat;
-    private int contador;
+    private int opcioPremi;
+    private int [] boletoJugador;
     public Administracio(){
-        sorteig = new Sorteig ();
+        reintegroBombo = new Sorteig ();
         lec = new Scanner(System.in);
-        contador = 0;
+        opcioPremi = 0;
+        boletoJugador = new int[6];
 
+    }
+    public int [] getBoletoJugador(){
+        return boletoJugador;
     }
 
     public int getReintegroJugador(){
@@ -28,7 +33,7 @@ public class Administracio {
         this.estaPremiat = estaPremiat;
     }
 
-    public int [] primitivaManual(){
+    public void primitivaManual(){
         int random;
         int [] boletoJugador = new int[6];
         boolean estaRepetido = true;
@@ -65,26 +70,92 @@ public class Administracio {
                     }
             }
         }while(!estaRepetido);
+        this.boletoJugador = boletoJugador;
         reintegroJugador = Lib.random(0,9);
-        return boletoJugador;
     }
-    public int [] primitivaAleatoria(){
+    public void primitivaAleatoria(){
         int [] numeros = new int[6];
         int random=0;
         int posicioFinal=48;
-        sorteig.plenarBombo1();
+        reintegroBombo.plenarBombo1();
         for (int i=0; i<numeros.length; i++){
             random = Lib.random(0,posicioFinal);
-            numeros [i] = sorteig.getBombo1()[random];
-            sorteig.getBombo1()[random] = sorteig.getBombo1()[posicioFinal];
+            numeros [i] = reintegroBombo.getBombo1()[random];
+            reintegroBombo.getBombo1()[random] = reintegroBombo.getBombo1()[posicioFinal];
             posicioFinal--;
         }
+        this.boletoJugador = numeros;
         reintegroJugador = Lib.random(0,9);
-        return numeros;
     }
 
     //comprovar si el el numero esta premiat e indicar el premi.
-    public boolean coomprovarPremi(int [] numeroClient,int [] numeroSorteig, int reintegroJugador, int reintegroBombo){
+    public void coomprovarPremi(int [] numeroClient,int [] numeroSorteig, int reintegroJugador, int reintegroBombo){
+        int contador = 0;
+        opcioPremi = 0;
+        boolean aciertoComplementario = false;
+        for (int i=0; i<numeroClient.length; i++){
+            for (int z=0; z<numeroSorteig.length-1;z++){
+                if(numeroClient[i] == numeroSorteig [6]){
+                    aciertoComplementario = true;
+                }
+                if(numeroClient[i]==numeroSorteig[z]) {
+                    contador++;
+                }
+            }
+        }
+        if (contador == 6 && reintegroJugador == reintegroBombo){
+
+            opcioPremi = 1;
+            estaPremiat = true;
+        }
+
+        else if (contador == 6 && reintegroJugador != reintegroBombo){
+
+            opcioPremi = 2;
+            estaPremiat = true;
+        }
+
+        else if (contador == 5 && aciertoComplementario){
+
+            opcioPremi = 3;
+            estaPremiat = true;
+        }
+
+        else if (contador == 5){
+
+            opcioPremi = 4;
+            estaPremiat = true;
+        }
+
+        else if (contador == 4){
+
+            opcioPremi = 5;
+            estaPremiat = true;
+        }
+
+        else if (contador == 3){
+
+            opcioPremi = 6;
+            estaPremiat = true;
+        }
+
+        else if (reintegroJugador == reintegroBombo){
+
+            opcioPremi = 7;
+            estaPremiat = true;
+        }
+
+        else if (contador <3){
+
+            opcioPremi = 8;
+            estaPremiat = false;
+        }
+
+
+    }
+    public void coomprovarPremi(int [] numeroClient,int [] numeroSorteig, int reintegroJugador
+            , int reintegroBombo, String noReintegrament){
+        opcioPremi = 0;
         int contador = 0;
         boolean aciertoComplementario = false;
         for (int i=0; i<numeroClient.length; i++){
@@ -98,65 +169,92 @@ public class Administracio {
             }
         }
         if (contador == 6 && reintegroJugador == reintegroBombo){
-            System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " R:" + reintegroBombo+
-                    " voste te: "+Arrays.toString(numeroClient)+ " R:" + reintegroJugador);
-            System.out.println("El seu premi es: " + premis.ESPECIAL);
+
+            opcioPremi = 1;
             estaPremiat = true;
         }
 
         else if (contador == 6 && reintegroJugador != reintegroBombo){
-            System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " R:" + reintegroBombo+
-                    " voste te: "+Arrays.toString(numeroClient)+ " R:" + reintegroJugador);
-            System.out.println("El seu premi es: " + premis.PRIMERA);
+
+            opcioPremi = 2;
             estaPremiat = true;
         }
 
         else if (contador == 5 && aciertoComplementario){
-            System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " R:" + reintegroBombo+
-                    " voste te: "+Arrays.toString(numeroClient)+ " R:" + reintegroJugador);
-            System.out.println("El seu premi es: " + premis.SEGONA);
+
+            opcioPremi = 3;
             estaPremiat = true;
         }
 
         else if (contador == 5){
-            System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " R:" + reintegroBombo+
-                    " voste te: "+Arrays.toString(numeroClient)+ " R:" + reintegroJugador);
-            System.out.println("El seu premi es: " + premis.TERCERA);
+
+            opcioPremi = 4;
             estaPremiat = true;
         }
 
         else if (contador == 4){
-            System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " R:" + reintegroBombo+
-                    " voste te: "+Arrays.toString(numeroClient)+ " R:" + reintegroJugador);
-            System.out.println("El seu premi es: " + premis.CUARTA);
+
+            opcioPremi = 5;
             estaPremiat = true;
         }
 
         else if (contador == 3){
-            System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " R:" + reintegroBombo+
-                    " voste te: "+Arrays.toString(numeroClient)+ " R:" + reintegroJugador);
-            System.out.println("El seu premi es: " + premis.QUINTA);
-            estaPremiat = true;
-        }
 
-        else if (reintegroJugador == reintegroBombo){
-            System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " R:" + reintegroBombo+
-                    " voste te: "+Arrays.toString(numeroClient)+ " R:" + reintegroJugador);
-            System.out.println("El seu premi es: " + premis.DEVOLUCIÓ_DINES);
+            opcioPremi = 6;
             estaPremiat = true;
         }
 
         else if (contador <3){
-            System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " R:" + reintegroBombo+
-                    " voste te: "+Arrays.toString(numeroClient)+ " R:" + reintegroJugador);
-            System.out.println("El seu premi es: "+premis.NO_PREMIAT);
+
+            opcioPremi = 8;
+            estaPremiat = false;
         }
 
-        return  estaPremiat;
 
     }
 
-    public void mostrarPremi(){
-
+    public void mostrarPremi(int [] numeroSorteig, int reintegroBombo){
+        switch (opcioPremi){
+            case 1:
+                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " R:"
+                        + reintegroBombo+ " voste te: "+Arrays.toString(getBoletoJugador())+ " R:" + reintegroJugador);
+                System.out.println("El seu premi es: " + premis.ESPECIAL);
+                break;
+            case 2:
+                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " R:"
+                        + reintegroBombo+ " voste te: "+Arrays.toString(getBoletoJugador())+ " R:" + reintegroJugador);
+                System.out.println("El seu premi es: " + premis.PRIMERA);
+                break;
+            case 3:
+                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " R:"
+                        + reintegroBombo+ " voste te: "+Arrays.toString(getBoletoJugador())+ " R:" + reintegroJugador);
+                System.out.println("El seu premi es: " + premis.SEGONA);
+                break;
+            case 4:
+                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " R:"
+                        + reintegroBombo+ " voste te: "+Arrays.toString(getBoletoJugador())+ " R:" + reintegroJugador);
+                System.out.println("El seu premi es: " + premis.TERCERA);
+                break;
+            case 5:
+                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " R:"
+                        + reintegroBombo+ " voste te: "+Arrays.toString(getBoletoJugador())+ " R:" + reintegroJugador);
+                System.out.println("El seu premi es: " + premis.CUARTA);
+                break;
+            case 6:
+                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " R:"
+                        + reintegroBombo+ " voste te: "+Arrays.toString(getBoletoJugador())+ " R:" + reintegroJugador);
+                System.out.println("El seu premi es: " + premis.QUINTA);
+                break;
+            case 7:
+                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " R:"
+                        + reintegroBombo+ " voste te: "+Arrays.toString(getBoletoJugador())+ " R:" + reintegroJugador);
+                System.out.println("El seu premi es: " + premis.DEVOLUCIÓ_DINES);
+                break;
+            case 8:
+                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " R:"
+                        + reintegroBombo+ " voste te: "+Arrays.toString(getBoletoJugador())+ " R:" + reintegroJugador);
+                System.out.println("El seu premi es: " + premis.NO_PREMIAT);
+                break;
+        }
     }
 }

@@ -10,24 +10,28 @@ public class Principal {
     private static Scanner lec;
     private static Administracio maquinaAdmin;
     private static Sorteig sorteig;
-    private static int [] numeroClient;
-
+    private static int [] boletoJuagador;
+    private static int [] numeroSorteig;
+    private static int reintegroBombo;
+    private static int complementari;
+    private static int contadorJugades;
     public static void main(String[] args) {
         maquinaAdmin = new Administracio();
-        sorteig = new Sorteig();
         lec = new Scanner(System.in);
         do {
             eleccio = menuInicial();
             switch (eleccio) {
                 case 1:
-                    numeroClient = maquinaAdmin.primitivaManual();
-                    System.out.println("Primitiva Generada: " + Arrays.toString(numeroClient)
+                    maquinaAdmin.primitivaManual();
+                    boletoJuagador = maquinaAdmin.getBoletoJugador();
+                    System.out.println("Primitiva Generada: " + Arrays.toString(boletoJuagador)
                             + " R: "+maquinaAdmin.getReintegroJugador());
                     Lib.continuar();
                     break;
                 case 2:
-                    numeroClient = maquinaAdmin.primitivaAleatoria();
-                    System.out.println("Primitiva Generada: " + Arrays.toString(numeroClient)
+                    maquinaAdmin.primitivaAleatoria();
+                    boletoJuagador = maquinaAdmin.getBoletoJugador();
+                    System.out.println("Primitiva Generada: " + Arrays.toString(boletoJuagador)
                             + " R: "+maquinaAdmin.getReintegroJugador());
                     Lib.continuar();
                     break;
@@ -39,29 +43,53 @@ public class Principal {
                                 break;
                             case 1:
                                 sorteig = new Sorteig();
-                                maquinaAdmin.coomprovarPremi(numeroClient,sorteig.getNumeroSorteig()
-                                        , maquinaAdmin.getReintegroJugador(), sorteig.getReintegroBombo());
+                                numeroSorteig = sorteig.generarNumeroSorteig();
+                                reintegroBombo = sorteig.getReintegroBombo();
+                                complementari = sorteig.getComplementari();
+                                System.out.println(Arrays.toString(numeroSorteig)+" "+reintegroBombo);
+
+                                maquinaAdmin.coomprovarPremi(boletoJuagador,numeroSorteig
+                                        , maquinaAdmin.getReintegroJugador(), reintegroBombo);
+                                maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo);
 
                                 Lib.continuar();
                                 break;
                             case 2:
-                                sorteig = new Sorteig();
-                                boolean estaPremiat = false;
+                                maquinaAdmin.setEstaPremiat(false);
                                 while (!maquinaAdmin.getEstaPremiat()){
-
                                     sorteig = new Sorteig();
-                                    maquinaAdmin.setEstaPremiat(maquinaAdmin.coomprovarPremi(numeroClient,sorteig.getNumeroSorteig()
-                                            , maquinaAdmin.getReintegroJugador(), sorteig.getReintegroBombo()));
+                                    numeroSorteig = sorteig.generarNumeroSorteig();
+                                    reintegroBombo = sorteig.getReintegroBombo();
+                                    maquinaAdmin.coomprovarPremi(boletoJuagador,numeroSorteig
+                                            , maquinaAdmin.getReintegroJugador(), reintegroBombo);
                                     if (maquinaAdmin.getEstaPremiat()){
-
-                                        maquinaAdmin.coomprovarPremi(numeroClient,sorteig.getNumeroSorteig()
-                                                , maquinaAdmin.getReintegroJugador(), sorteig.getReintegroBombo());
+                                        contadorJugades++;
+                                        System.out.println("Ha fet un total de: " + contadorJugades + " jugades.");
+                                        maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo);
                                     }
+                                    contadorJugades++;
                                 }
                                 Lib.continuar();
+                                contadorJugades = 0;
                                 break;
                             case 3:
+                                maquinaAdmin.setEstaPremiat(false);
+                                while (!maquinaAdmin.getEstaPremiat()){
+                                    sorteig = new Sorteig();
+                                    numeroSorteig = sorteig.generarNumeroSorteig();
+                                    reintegroBombo = sorteig.getReintegroBombo();
+                                    maquinaAdmin.coomprovarPremi(boletoJuagador,numeroSorteig
+                                            , maquinaAdmin.getReintegroJugador(), reintegroBombo, "sense Reintegro");
+                                    if (maquinaAdmin.getEstaPremiat()){
+                                        contadorJugades++;
+                                        System.out.println("Ha fet un total de: " + contadorJugades + " jugades.");
+                                        maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo);
+
+                                    }
+                                    contadorJugades++;
+                                }
                                 Lib.continuar();
+                                contadorJugades = 0;
                                 break;
                             case 4:
                                 Lib.continuar();

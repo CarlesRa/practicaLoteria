@@ -7,6 +7,7 @@ public class Sorteig {
     private int [] bombo1;
     //private int reintegroJugador;
     private int reintegroBombo;
+    private int complementari;
     private int [] numeroSorteig;
 
     public Sorteig(){
@@ -14,7 +15,7 @@ public class Sorteig {
         bombo1 = new int[49];
         //reintegroJugador = Lib.random(0,9);
         reintegroBombo = Lib.random(0,9);
-        numeroSorteig = generarNumeroSorteig();
+        //numeroSorteig = generarNumeroSorteig();
 
     }
 
@@ -30,6 +31,10 @@ public class Sorteig {
         return reintegroBombo;
     }
 
+    public int getComplementari(){
+        return complementari;
+    }
+
     public int [] getNumeroSorteig(){
         return numeroSorteig;
     }
@@ -43,16 +48,22 @@ public class Sorteig {
     }
 
     public int []generarNumeroSorteig(){
-        int [] numeros = new int[7];
+        int [] numeros = new int[6];
         int random;
         int posicioFinal=48;
         plenarBombo1();
-        for (int i=0; i<numeros.length; i++){
+        for (int i=0; i<=numeros.length; i++){
             random = Lib.random(0,posicioFinal);
-            numeros [i] = getBombo1()[random];
-            getBombo1()[random] = getBombo1()[posicioFinal];
+            if (i<numeros.length-1) {
+                numeros[i] = getBombo1()[random];
+                getBombo1()[random] = getBombo1()[posicioFinal];
+            }
+            if (i==numeros.length){
+                complementari = getBombo1()[posicioFinal];
+            }
             posicioFinal--;
         }
+        numeroSorteig = numeros;
         return numeros;
     }
 
