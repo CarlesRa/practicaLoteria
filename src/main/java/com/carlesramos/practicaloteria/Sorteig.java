@@ -35,12 +35,16 @@ public class Sorteig {
         return complementari;
     }
 
+    public void setComplementari(int complementari){
+        this.complementari = complementari;
+    }
+
     public int [] getNumeroSorteig(){
         return numeroSorteig;
     }
 
     public void plenarBombo1(){
-        int numsBombo1=1;
+        int numsBombo1=0;
         for (int i=0; i<bombo1.length; i++){
             bombo1[i]=numsBombo1;
             numsBombo1++;
@@ -59,7 +63,7 @@ public class Sorteig {
                 getBombo1()[random] = getBombo1()[posicioFinal];
             }
             if (i==numeros.length){
-                complementari = getBombo1()[posicioFinal];
+                setComplementari(getBombo1()[random]);
             }
             posicioFinal--;
         }

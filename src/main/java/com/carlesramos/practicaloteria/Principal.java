@@ -52,8 +52,6 @@ public class Principal {
                                 numeroSorteig = sorteig.generarNumeroSorteig();
                                 reintegroBombo = sorteig.getReintegroBombo();
                                 complementari = sorteig.getComplementari();
-                                System.out.println(Arrays.toString(numeroSorteig)+" "+reintegroBombo);
-
                                 maquinaAdmin.coomprovarPremi(boletoJuagador,numeroSorteig
                                         , maquinaAdmin.getReintegroJugador(), reintegroBombo, complementari);
                                 maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo,complementari);
@@ -99,7 +97,7 @@ public class Principal {
                                 Lib.continuar();
                                 break;
                             case 4:
-                                for (int i=0; i<10000; i++){
+                                for (int i=0; i<100000000; i++){
                                     sorteig = new Sorteig();
                                     numeroSorteig = sorteig.generarNumeroSorteig();
                                     reintegroBombo = sorteig.getReintegroBombo();

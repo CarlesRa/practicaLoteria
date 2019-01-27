@@ -172,11 +172,12 @@ public class Administracio {
     public void coomprovarPremi(int [] numeroClient,int [] numeroSorteig, int reintegroJugador
             , int reintegroBombo, int complementari){
         int contador = 0;
+        int comp = 0;
         opcioPremi = 0;
         boolean aciertoComplementario = false;
         for (int i=0; i<numeroClient.length; i++){
             for (int z=0; z<numeroSorteig.length;z++){
-                if(numeroClient[i] == complementari){
+                if(numeroClient[z] == complementari){
                     aciertoComplementario = true;
                 }
                 if(numeroClient[i]==numeroSorteig[z]) {
