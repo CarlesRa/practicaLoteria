@@ -79,7 +79,7 @@ public class Principal {
                                     numeroSorteig = sorteig.generarNumeroSorteig();
                                     reintegroBombo = sorteig.getReintegroBombo();
                                     maquinaAdmin.coomprovarPremi(boletoJuagador,numeroSorteig
-                                            , maquinaAdmin.getReintegroJugador(), reintegroBombo, "sense Reintegro");
+                                            , maquinaAdmin.getReintegroJugador(), reintegroBombo, complementari, "sense Reintegro");
                                     if (maquinaAdmin.getEstaPremiat()){
                                         contadorJugades++;
                                         System.out.println("Ha fet un total de: " + contadorJugades + " jugades.");

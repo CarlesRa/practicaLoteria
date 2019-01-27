@@ -155,13 +155,13 @@ public class Administracio {
 
     }
     public void coomprovarPremi(int [] numeroClient,int [] numeroSorteig, int reintegroJugador
-            , int reintegroBombo, String noReintegrament){
+            , int reintegroBombo,int complementari, String noReintegrament){
         opcioPremi = 0;
         int contador = 0;
         boolean aciertoComplementario = false;
         for (int i=0; i<numeroClient.length; i++){
             for (int z=0; z<numeroSorteig.length-1;z++){
-                if(numeroClient[i] == numeroSorteig [6]){
+                if(numeroClient[i] == complementari){
                     aciertoComplementario = true;
                 }
                 if(numeroClient[i]==numeroSorteig[z]) {
