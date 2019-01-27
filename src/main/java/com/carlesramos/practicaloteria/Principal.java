@@ -19,6 +19,13 @@ public class Principal {
         lec = new Scanner(System.in);
         do {
             eleccio = menuInicial();
+            if (eleccio == 0){
+                System.out.println("Adeu!!! fins la proxima.");
+            }
+            else if (eleccio<1 || eleccio>2 && maquinaAdmin.getBoletoJugador()[0] == 0 && maquinaAdmin.getBoletoJugador()[1] == 0){
+                System.out.println("No ha plenat el bolet....");
+                eleccio = -1;
+            }
             switch (eleccio) {
                 case 1:
                     maquinaAdmin.primitivaManual();
