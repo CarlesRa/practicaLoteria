@@ -14,8 +14,6 @@ public class Principal {
     private static int [] numeroSorteig;
     private static int reintegroBombo;
     private static int complementari;
-    private static int contadorJugades;
-    private static int contadorPremis;
     public static void main(String[] args) {
         maquinaAdmin = new Administracio();
         lec = new Scanner(System.in);
@@ -56,7 +54,6 @@ public class Principal {
                                 Lib.continuar();
                                 break;
                             case 2:
-                                contadorJugades = 1;
                                 maquinaAdmin.setEstaPremiat(false);
                                 while (!maquinaAdmin.getEstaPremiat()){
                                     sorteig = new Sorteig();
@@ -66,13 +63,13 @@ public class Principal {
                                     maquinaAdmin.coomprovarPremi(boletoJuagador,numeroSorteig
                                             , maquinaAdmin.getReintegroJugador(), reintegroBombo, complementari);
                                     if (maquinaAdmin.getEstaPremiat()){
-                                        System.out.println("Ha fet un total de: " + contadorJugades + " jugades.");
+                                        System.out.println("Ha fet un total de: " + maquinaAdmin.getContadorJugades()
+                                                + " jugades.");
                                         maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo,complementari);
                                     }
-                                    contadorJugades++;
                                 }
+                                maquinaAdmin.setContadorJugades(0);
                                 Lib.continuar();
-                                contadorJugades = 0;
                                 break;
                             case 3:
                                 maquinaAdmin.setEstaPremiat(false);
@@ -82,16 +79,17 @@ public class Principal {
                                     reintegroBombo = sorteig.getReintegroBombo();
                                     complementari = sorteig.getComplementari();
                                     maquinaAdmin.coomprovarPremi(boletoJuagador,numeroSorteig
-                                            , maquinaAdmin.getReintegroJugador(), reintegroBombo, complementari, "sense Reintegro");
+                                            , maquinaAdmin.getReintegroJugador(), reintegroBombo, complementari
+                                            , "sense Reintegro");
                                     if (maquinaAdmin.getEstaPremiat()){
-                                        System.out.println("Ha fet un total de: " + contadorJugades + " jugades.");
+                                        System.out.println("Ha fet un total de: " +maquinaAdmin.getContadorJugades()
+                                                + " jugades.");
                                         maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo,complementari);
 
                                     }
-                                    contadorJugades++;
                                 }
+                                maquinaAdmin.setContadorJugades(0);
                                 Lib.continuar();
-                                contadorJugades = 0;
                                 break;
                             case 4:
                                 for (int i=0; i<10000; i++){
@@ -101,16 +99,25 @@ public class Principal {
                                     complementari = sorteig.getComplementari();
                                     maquinaAdmin.coomprovarPremi(boletoJuagador,numeroSorteig
                                             , maquinaAdmin.getReintegroJugador(), reintegroBombo, complementari);
-                                    if (maquinaAdmin.getEstaPremiat()){
-                                        maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo,complementari);
-                                        contadorPremis++;
-                                    }
-                                    contadorJugades++;
-
                                 }
-                                System.out.println("En: " + contadorJugades + " jugades." + " Ha tret: "
-                                + contadorPremis + " premis.");
+                                System.out.println("En: " + maquinaAdmin.getContadorJugades() + " jugades."
+                                        + " Ha tret: ");
+                                System.out.print("Categoria especial: " + maquinaAdmin.getContadorEspecial() + "\n");
+                                System.out.print("Primera categoria: " + maquinaAdmin.getContadorPrimer() + "\n");
+                                System.out.print("Segona categoria: " + maquinaAdmin.getContadorSegon() + "\n");
+                                System.out.print("Tercera categoria: " + maquinaAdmin.getContadorTercer() + "\n");
+                                System.out.print("Cuarta categoria: " + maquinaAdmin.getContadorCuart() + "\n");
+                                System.out.print("Quinta categoria: " + maquinaAdmin.getContadorCinque() + "\n");
+                                System.out.print("Reintegraments: " + maquinaAdmin.getContadorReintegros() + "\n");
                                 Lib.continuar();
+                                maquinaAdmin.setContadorJugades(0);
+                                maquinaAdmin.setContadorEspecial(0);
+                                maquinaAdmin.setContadorPrimer(0);
+                                maquinaAdmin.setContadorSegon(0);
+                                maquinaAdmin.setContadorTercer(0);
+                                maquinaAdmin.setContadorCuart(0);
+                                maquinaAdmin.setContadorCinque(0);
+                                maquinaAdmin.setContadorReintegros(0);
                                 break;
                             case 5:
                                 maquinaAdmin.setEstaPremiat(false);
@@ -119,14 +126,13 @@ public class Principal {
                                     numeroSorteig = sorteig.generarNumeroSorteig();
                                     reintegroBombo = sorteig.getReintegroBombo();
                                     complementari = sorteig.getComplementari();
-                                    maquinaAdmin.coomprovarPremiEspecial(boletoJuagador,numeroSorteig
-                                            , maquinaAdmin.getReintegroJugador(), reintegroBombo, complementari);
+                                    maquinaAdmin.coomprovarPremi(boletoJuagador,numeroSorteig
+                                            , maquinaAdmin.getReintegroJugador(), reintegroBombo);
                                     if (maquinaAdmin.getEstaPremiat()){
                                         maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo,complementari);
                                     }
-                                    contadorJugades++;
                                 }
-                                System.out.println("Ha fet un total de: " + contadorJugades + " jugades.");
+                                System.out.println("Ha fet un total de: " + " jugades.");
 
 
                                 Lib.continuar();
@@ -137,7 +143,7 @@ public class Principal {
                         }
                     }while (eleccio2 != 0);
             }
-            if (eleccio<1 || eleccio>3){
+            if (eleccio<0 || eleccio>3){
                 Lib.mensajeError();
             }
         }while (eleccio != 0);
@@ -145,14 +151,16 @@ public class Principal {
     }
 
     public  static int menuInicial(){
+        int eleccio;
         do {
-            int eleccio;
+            Lib.limpiarPantalla();
             System.out.println("*************************");
             System.out.println("*******BENVINGUT*********");
             System.out.println("1-Primitiva manual...");
             System.out.println("2-Primitiva Aleatoria...");
             System.out.println("3-JUGAR!!...");
             System.out.println("*************************");
+            System.out.println("0-Eixir.....");
             System.out.print("Tria una opció: ");
             eleccio = lec.nextInt();
             lec.nextLine();
@@ -163,6 +171,7 @@ public class Principal {
     public static int mostrarMenu() {
         int eleccio;
         do {
+            Lib.limpiarPantalla();
             System.out.println("******************************************************");
             System.out.println("**********************PRIMITIVA***********************");
             System.out.println("1-Joc unic...");

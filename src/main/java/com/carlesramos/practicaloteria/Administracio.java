@@ -10,13 +10,93 @@ public class Administracio {
     private boolean estaPremiat;
     private int opcioPremi;
     private int [] boletoJugador;
+    private int contadorJugades;
+    private int contadorEspecial;
+    private int contadorPrimer;
+    private int contadorSegon;
+    private int contadorTercer;
+    private int contadorCuart;
+    private int contadorCinque;
+    private int contadorReintegros;
     public Administracio(){
         reintegroBombo = new Sorteig ();
         lec = new Scanner(System.in);
         opcioPremi = 0;
         boletoJugador = new int[6];
-
+        contadorJugades = 0;
+        contadorEspecial = 0;
+        contadorPrimer = 0;
+        contadorSegon = 0;
+        contadorTercer = 0;
+        contadorCuart = 0;
+        contadorCinque = 0;
+        contadorReintegros = 0;
     }
+
+    public int getContadorJugades() {
+        return contadorJugades;
+    }
+
+    public void setContadorJugades(int contadorJugades) {
+        this.contadorJugades = contadorJugades;
+    }
+
+    public int getContadorEspecial() {
+        return contadorEspecial;
+    }
+
+    public void setContadorEspecial(int contadorEspecial) {
+        this.contadorEspecial = contadorEspecial;
+    }
+
+    public int getContadorPrimer() {
+        return contadorPrimer;
+    }
+
+    public void setContadorPrimer(int contadorPrimer) {
+        this.contadorPrimer = contadorPrimer;
+    }
+
+    public int getContadorSegon() {
+        return contadorSegon;
+    }
+
+    public void setContadorSegon(int contadorSegon) {
+        this.contadorSegon = contadorSegon;
+    }
+
+    public int getContadorTercer() {
+        return contadorTercer;
+    }
+
+    public void setContadorTercer(int contadorTercer) {
+        this.contadorTercer = contadorTercer;
+    }
+
+    public int getContadorCuart() {
+        return contadorCuart;
+    }
+
+    public void setContadorCuart(int contadorCuart) {
+        this.contadorCuart = contadorCuart;
+    }
+
+    public int getContadorCinque() {
+        return contadorCinque;
+    }
+
+    public int getContadorReintegros() {
+        return contadorReintegros;
+    }
+
+    public void setContadorReintegros(int contadorReintegros) {
+        this.contadorReintegros = contadorReintegros;
+    }
+
+    public void setContadorCinque(int contadorCinque) {
+        this.contadorCinque = contadorCinque;
+    }
+
     public int [] getBoletoJugador(){
         return boletoJugador;
     }
@@ -36,7 +116,7 @@ public class Administracio {
     public void primitivaManual(){
         int random;
         int [] boletoJugador = new int[6];
-        boolean estaRepetido = true;
+        boolean estaRepetido;
         int numero;
         for(int i=0; i<boletoJugador.length; i++) {
             do {
@@ -105,55 +185,63 @@ public class Administracio {
             }
         }
         if (contador == 6 && reintegroJugador == reintegroBombo){
-
+            setContadorJugades(getContadorJugades()+1);
+            setContadorEspecial(getContadorEspecial()+1);
             opcioPremi = 1;
             estaPremiat = true;
         }
 
         else if (contador == 6 && reintegroJugador != reintegroBombo){
-
+            setContadorJugades(getContadorJugades()+1);
+            setContadorPrimer(getContadorPrimer()+1);
             opcioPremi = 2;
             estaPremiat = true;
         }
 
         else if (contador == 5 && aciertoComplementario){
-
+            setContadorJugades(getContadorJugades()+1);
+            setContadorSegon(getContadorSegon()+1);
             opcioPremi = 3;
             estaPremiat = true;
         }
 
         else if (contador == 5){
-
+            setContadorJugades(getContadorJugades()+1);
+            setContadorTercer(getContadorTercer()+1);
             opcioPremi = 4;
             estaPremiat = true;
         }
 
         else if (contador == 4){
-
+            setContadorJugades(getContadorJugades()+1);
+            setContadorCuart(getContadorCuart()+1);
             opcioPremi = 5;
             estaPremiat = true;
         }
 
         else if (contador == 3){
-
+            setContadorJugades(getContadorJugades()+1);
+            setContadorCinque(getContadorCinque()+1);
             opcioPremi = 6;
             estaPremiat = true;
         }
 
         else if (reintegroJugador == reintegroBombo){
-
+            setContadorJugades(getContadorJugades()+1);
+            setContadorReintegros(getContadorReintegros()+1);
             opcioPremi = 7;
             estaPremiat = true;
         }
 
         else if (contador <3){
-
+            setContadorJugades(getContadorJugades()+1);
             opcioPremi = 8;
             estaPremiat = false;
         }
 
-
     }
+
+    //comprova si hi ha premi pero sense tindre en compte els reintegraments.
     public void coomprovarPremi(int [] numeroClient, int [] numeroSorteig, int reintegroJugador
             , int reintegroBombo, int complementari, String noReintegrament){
         opcioPremi = 0;
@@ -170,43 +258,43 @@ public class Administracio {
             }
         }
         if (contador == 6 && reintegroJugador == reintegroBombo){
-
+            setContadorJugades(getContadorJugades()+1);
             opcioPremi = 1;
             estaPremiat = true;
         }
 
         else if (contador == 6 && reintegroJugador != reintegroBombo){
-
+            setContadorJugades(getContadorJugades()+1);
             opcioPremi = 2;
             estaPremiat = true;
         }
 
         else if (contador == 5 && aciertoComplementario){
-
+            setContadorJugades(getContadorJugades()+1);
             opcioPremi = 3;
             estaPremiat = true;
         }
 
         else if (contador == 5){
-
+            setContadorJugades(getContadorJugades()+1);
             opcioPremi = 4;
             estaPremiat = true;
         }
 
         else if (contador == 4){
-
+            setContadorJugades(getContadorJugades()+1);
             opcioPremi = 5;
             estaPremiat = true;
         }
 
         else if (contador == 3){
-
+            setContadorJugades(getContadorJugades()+1);
             opcioPremi = 6;
             estaPremiat = true;
         }
 
         else if (contador <3){
-
+            setContadorJugades(getContadorJugades()+1);
             opcioPremi = 8;
             estaPremiat = false;
         }
@@ -214,16 +302,12 @@ public class Administracio {
 
     }
 
-    public void coomprovarPremiEspecial(int [] numeroClient, int [] numeroSorteig, int reintegroJugador
-            , int reintegroBombo, int complementari){
+    public void coomprovarPremi(int [] numeroClient, int [] numeroSorteig, int reintegroJugador
+            , int reintegroBombo){
         opcioPremi = 0;
         int contador = 0;
-        boolean aciertoComplementario = false;
         for (int i=0; i<numeroClient.length; i++){
             for (int z=0; z<numeroSorteig.length-1;z++){
-                if(numeroClient[i] == complementari){
-                    aciertoComplementario = true;
-                }
                 if(numeroClient[i]==numeroSorteig[z]) {
                     contador++;
                 }
