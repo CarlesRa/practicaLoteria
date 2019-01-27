@@ -3,13 +3,16 @@ package com.carlesramos.practicaloteria;
 import com.carlesramos.practicaloteria.utils.Lib;
 
 public class Sorteig {
+
     private int [] bombo1;
-    private int reintegroJugador;
+    //private int reintegroJugador;
     private int reintegroBombo;
     private int [] numeroSorteig;
+
     public Sorteig(){
+
         bombo1 = new int[49];
-        reintegroJugador = Lib.random(0,9);
+        //reintegroJugador = Lib.random(0,9);
         reintegroBombo = Lib.random(0,9);
         numeroSorteig = generarNumeroSorteig();
 
@@ -19,9 +22,9 @@ public class Sorteig {
         return bombo1;
     }
 
-    public int getReintegroJugador() {
+   /* public int getReintegroJugador() {
         return reintegroJugador;
-    }
+    }*/
 
     public int getReintegroBombo() {
         return reintegroBombo;

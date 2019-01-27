@@ -21,12 +21,14 @@ public class Principal {
             switch (eleccio) {
                 case 1:
                     numeroClient = maquinaAdmin.primitivaManual();
-                    System.out.println("Primitiva Generada: " + Arrays.toString(numeroClient));
+                    System.out.println("Primitiva Generada: " + Arrays.toString(numeroClient)
+                            + " R: "+maquinaAdmin.getReintegroJugador());
                     Lib.continuar();
                     break;
                 case 2:
                     numeroClient = maquinaAdmin.primitivaAleatoria();
-                    System.out.println("Primitiva Generada: " + Arrays.toString(numeroClient));
+                    System.out.println("Primitiva Generada: " + Arrays.toString(numeroClient)
+                            + " R: "+maquinaAdmin.getReintegroJugador());
                     Lib.continuar();
                     break;
                 case 3:
@@ -36,12 +38,26 @@ public class Principal {
                             case 0:
                                 break;
                             case 1:
+                                sorteig = new Sorteig();
                                 maquinaAdmin.coomprovarPremi(numeroClient,sorteig.getNumeroSorteig()
-                                        , sorteig.getReintegroJugador(), sorteig.getReintegroBombo());
+                                        , maquinaAdmin.getReintegroJugador(), sorteig.getReintegroBombo());
 
                                 Lib.continuar();
                                 break;
                             case 2:
+                                sorteig = new Sorteig();
+                                boolean estaPremiat = false;
+                                while (!maquinaAdmin.getEstaPremiat()){
+
+                                    sorteig = new Sorteig();
+                                    maquinaAdmin.setEstaPremiat(maquinaAdmin.coomprovarPremi(numeroClient,sorteig.getNumeroSorteig()
+                                            , maquinaAdmin.getReintegroJugador(), sorteig.getReintegroBombo()));
+                                    if (maquinaAdmin.getEstaPremiat()){
+
+                                        maquinaAdmin.coomprovarPremi(numeroClient,sorteig.getNumeroSorteig()
+                                                , maquinaAdmin.getReintegroJugador(), sorteig.getReintegroBombo());
+                                    }
+                                }
                                 Lib.continuar();
                                 break;
                             case 3:
