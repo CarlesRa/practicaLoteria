@@ -12,7 +12,7 @@ public class Sorteig {
 
     public Sorteig(){
 
-        bombo1 = new int[49];
+        bombo1 = new int[50];
         //reintegroJugador = Lib.random(0,9);
         reintegroBombo = Lib.random(0,9);
         //numeroSorteig = generarNumeroSorteig();
@@ -50,7 +50,7 @@ public class Sorteig {
     public int []generarNumeroSorteig(){
         int [] numeros = new int[6];
         int random;
-        int posicioFinal=48;
+        int posicioFinal=49;
         plenarBombo1();
         for (int i=0; i<=numeros.length; i++){
             random = Lib.random(0,posicioFinal);

@@ -56,6 +56,7 @@ public class Principal {
                                 Lib.continuar();
                                 break;
                             case 2:
+                                contadorJugades = 1;
                                 maquinaAdmin.setEstaPremiat(false);
                                 while (!maquinaAdmin.getEstaPremiat()){
                                     sorteig = new Sorteig();
@@ -113,7 +114,10 @@ public class Principal {
                                 break;
                             case 5:
                                 maquinaAdmin.setEstaPremiat(false);
+                                int i=0;
                                 while (!maquinaAdmin.getEstaPremiat()){
+                                    System.out.println(i);
+                                    i++;
                                     sorteig = new Sorteig();
                                     numeroSorteig = sorteig.generarNumeroSorteig();
                                     reintegroBombo = sorteig.getReintegroBombo();
