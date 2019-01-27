@@ -114,10 +114,7 @@ public class Principal {
                                 break;
                             case 5:
                                 maquinaAdmin.setEstaPremiat(false);
-                                int i=0;
                                 while (!maquinaAdmin.getEstaPremiat()){
-                                    System.out.println(i);
-                                    i++;
                                     sorteig = new Sorteig();
                                     numeroSorteig = sorteig.generarNumeroSorteig();
                                     reintegroBombo = sorteig.getReintegroBombo();
