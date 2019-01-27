@@ -89,13 +89,14 @@ public class Administracio {
     }
 
     //comprovar si el el numero esta premiat e indicar el premi.
-    public void coomprovarPremi(int [] numeroClient,int [] numeroSorteig, int reintegroJugador, int reintegroBombo){
+    public void coomprovarPremi(int [] numeroClient,int [] numeroSorteig, int reintegroJugador
+            , int reintegroBombo, int complementari){
         int contador = 0;
         opcioPremi = 0;
         boolean aciertoComplementario = false;
         for (int i=0; i<numeroClient.length; i++){
-            for (int z=0; z<numeroSorteig.length-1;z++){
-                if(numeroClient[i] == numeroSorteig [6]){
+            for (int z=0; z<numeroSorteig.length;z++){
+                if(numeroClient[i] == complementari){
                     aciertoComplementario = true;
                 }
                 if(numeroClient[i]==numeroSorteig[z]) {
@@ -213,45 +214,45 @@ public class Administracio {
 
     }
 
-    public void mostrarPremi(int [] numeroSorteig, int reintegroBombo){
+    public void mostrarPremi(int [] numeroSorteig, int reintegroBombo, int complementari){
         switch (opcioPremi){
             case 1:
-                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " R:"
+                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " C:"+ complementari+" R:"
                         + reintegroBombo+ " voste te: "+Arrays.toString(getBoletoJugador())+ " R:" + reintegroJugador);
                 System.out.println("El seu premi es: " + premis.ESPECIAL);
                 break;
             case 2:
-                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " R:"
+                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " C:"+ complementari+" R:"
                         + reintegroBombo+ " voste te: "+Arrays.toString(getBoletoJugador())+ " R:" + reintegroJugador);
                 System.out.println("El seu premi es: " + premis.PRIMERA);
                 break;
             case 3:
-                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " R:"
+                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " C:"+ complementari+" R:"
                         + reintegroBombo+ " voste te: "+Arrays.toString(getBoletoJugador())+ " R:" + reintegroJugador);
                 System.out.println("El seu premi es: " + premis.SEGONA);
                 break;
             case 4:
-                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " R:"
+                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " C:"+ complementari+" R:"
                         + reintegroBombo+ " voste te: "+Arrays.toString(getBoletoJugador())+ " R:" + reintegroJugador);
                 System.out.println("El seu premi es: " + premis.TERCERA);
                 break;
             case 5:
-                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " R:"
+                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " C:"+ complementari+" R:"
                         + reintegroBombo+ " voste te: "+Arrays.toString(getBoletoJugador())+ " R:" + reintegroJugador);
                 System.out.println("El seu premi es: " + premis.CUARTA);
                 break;
             case 6:
-                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " R:"
+                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " C:"+ complementari+" R:"
                         + reintegroBombo+ " voste te: "+Arrays.toString(getBoletoJugador())+ " R:" + reintegroJugador);
                 System.out.println("El seu premi es: " + premis.QUINTA);
                 break;
             case 7:
-                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " R:"
+                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " C:"+ complementari+" R:"
                         + reintegroBombo+ " voste te: "+Arrays.toString(getBoletoJugador())+ " R:" + reintegroJugador);
                 System.out.println("El seu premi es: " + premis.DEVOLUCIÓ_DINES);
                 break;
             case 8:
-                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " R:"
+                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " C:"+ complementari+" R:"
                         + reintegroBombo+ " voste te: "+Arrays.toString(getBoletoJugador())+ " R:" + reintegroJugador);
                 System.out.println("El seu premi es: " + premis.NO_PREMIAT);
                 break;

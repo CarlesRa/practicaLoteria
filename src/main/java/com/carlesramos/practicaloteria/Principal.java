@@ -49,8 +49,8 @@ public class Principal {
                                 System.out.println(Arrays.toString(numeroSorteig)+" "+reintegroBombo);
 
                                 maquinaAdmin.coomprovarPremi(boletoJuagador,numeroSorteig
-                                        , maquinaAdmin.getReintegroJugador(), reintegroBombo);
-                                maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo);
+                                        , maquinaAdmin.getReintegroJugador(), reintegroBombo, complementari);
+                                maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo,complementari);
 
                                 Lib.continuar();
                                 break;
@@ -61,11 +61,11 @@ public class Principal {
                                     numeroSorteig = sorteig.generarNumeroSorteig();
                                     reintegroBombo = sorteig.getReintegroBombo();
                                     maquinaAdmin.coomprovarPremi(boletoJuagador,numeroSorteig
-                                            , maquinaAdmin.getReintegroJugador(), reintegroBombo);
+                                            , maquinaAdmin.getReintegroJugador(), reintegroBombo, complementari);
                                     if (maquinaAdmin.getEstaPremiat()){
                                         contadorJugades++;
                                         System.out.println("Ha fet un total de: " + contadorJugades + " jugades.");
-                                        maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo);
+                                        maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo,complementari);
                                     }
                                     contadorJugades++;
                                 }
@@ -83,7 +83,7 @@ public class Principal {
                                     if (maquinaAdmin.getEstaPremiat()){
                                         contadorJugades++;
                                         System.out.println("Ha fet un total de: " + contadorJugades + " jugades.");
-                                        maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo);
+                                        maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo,complementari);
 
                                     }
                                     contadorJugades++;

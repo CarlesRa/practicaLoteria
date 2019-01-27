@@ -54,7 +54,7 @@ public class Sorteig {
         plenarBombo1();
         for (int i=0; i<=numeros.length; i++){
             random = Lib.random(0,posicioFinal);
-            if (i<numeros.length-1) {
+            if (i<numeros.length) {
                 numeros[i] = getBombo1()[random];
                 getBombo1()[random] = getBombo1()[posicioFinal];
             }
