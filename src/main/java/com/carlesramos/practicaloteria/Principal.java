@@ -58,7 +58,7 @@ public class Principal {
     public  static int menuInicial(){
         int eleccio;
         do {
-            Lib.limpiarPantalla();
+            System.out.print(Lib.limpiarPantalla());
             System.out.println("*************************");
             System.out.println("*******BENVINGUT*********");
             System.out.println("1-Primitiva manual...");
@@ -80,7 +80,7 @@ public class Principal {
     public static int menuJugar() {
         int eleccio;
         do {
-            Lib.limpiarPantalla();
+            System.out.print(Lib.limpiarPantalla());
             System.out.println("******************************************************");
             System.out.println("**********************PRIMITIVA***********************");
             System.out.println("1-Joc unic...");
