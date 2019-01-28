@@ -156,7 +156,7 @@ public class Principal {
                     Lib.continuar();
                     break;
                 case 4://Jugar 10.000 vegades
-                    for (int i=0; i<10000; i++){
+                    for (int i=0; i<100000000; i++){
                         sorteig = new Sorteig();
                         numeroSorteig = sorteig.generarNumeroSorteig();
                         reintegroBombo = sorteig.getReintegroBombo();

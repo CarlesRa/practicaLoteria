@@ -275,7 +275,7 @@ public class Administracio {
         int contador = 0;
         boolean aciertoComplementario = false;
         for (int i=0; i<numeroClient.length; i++){
-            for (int z=0; z<numeroSorteig.length-1;z++){
+            for (int z=0; z<numeroSorteig.length;z++){
                 if(numeroClient[i] == complementari){
                     aciertoComplementario = true;
                 }
@@ -341,7 +341,7 @@ public class Administracio {
         opcioPremi = 0;
         int contador = 0;
         for (int i=0; i<numeroClient.length; i++){
-            for (int z=0; z<numeroSorteig.length-1;z++){
+            for (int z=0; z<numeroSorteig.length;z++){
                 if(numeroClient[i]==numeroSorteig[z]) {
                     contador++;
                 }
