@@ -135,7 +135,7 @@ public class Principal {
                     maquinaAdmin.setContadorJugades(0);
                     Lib.continuar();
                     break;
-                case 3:
+                case 3://jugar fins a premi sense reintegrament
                     maquinaAdmin.setEstaPremiat(false);
                     while (!maquinaAdmin.getEstaPremiat()){
                         sorteig = new Sorteig();
@@ -155,7 +155,7 @@ public class Principal {
                     maquinaAdmin.setContadorJugades(0);
                     Lib.continuar();
                     break;
-                case 4:
+                case 4://Jugar 10.000 vegades
                     for (int i=0; i<10000; i++){
                         sorteig = new Sorteig();
                         numeroSorteig = sorteig.generarNumeroSorteig();
@@ -183,7 +183,7 @@ public class Principal {
                     maquinaAdmin.setContadorReintegros(0);
                     Lib.continuar();
                     break;
-                case 5:
+                case 5://jugar fins a especial.
                     maquinaAdmin.setEstaPremiat(false);
                     while (!maquinaAdmin.getEstaPremiat()){
                         sorteig = new Sorteig();
