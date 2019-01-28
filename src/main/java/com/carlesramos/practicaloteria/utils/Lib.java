@@ -19,7 +19,7 @@ public class Lib {
 
     public  static void mensajeError(){
 
-        System.out.print(limpiarPantalla()+letraRoja()+
+        System.out.print(letraRoja()+
                 "Dada erronea..... "+ reiniciarColorLetra() + " Intro per continuar: ");
         lec.nextLine();
     }
