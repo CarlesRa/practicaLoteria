@@ -27,126 +27,22 @@ public class Principal {
                 eleccio = -1;
             }
             switch (eleccio) {
-                case 1:
+                case 1://Primitiva manual.
                     maquinaAdmin.primitivaManual();
                     boletoJuagador = maquinaAdmin.getBoletoJugador();
                     System.out.println("Primitiva Generada: " + Arrays.toString(boletoJuagador)
                             + " R: "+maquinaAdmin.getReintegroJugador());
                     Lib.continuar();
                     break;
-                case 2:
+                case 2://primitiva aleatoria
                     maquinaAdmin.primitivaAleatoria();
                     boletoJuagador = maquinaAdmin.getBoletoJugador();
                     System.out.println("Primitiva Generada: " + Arrays.toString(boletoJuagador)
                             + " R: "+maquinaAdmin.getReintegroJugador());
                     Lib.continuar();
                     break;
-                case 3:
-                    do {
-                        eleccio2 = mostrarMenu();
-                        switch (eleccio2) {
-                            case 0:
-                                break;
-                            case 1:
-                                sorteig = new Sorteig();
-                                numeroSorteig = sorteig.generarNumeroSorteig();
-                                reintegroBombo = sorteig.getReintegroBombo();
-                                complementari = sorteig.getComplementari();
-                                maquinaAdmin.coomprovarPremi(boletoJuagador,numeroSorteig
-                                        , maquinaAdmin.getReintegroJugador(), reintegroBombo, complementari);
-                                maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo,complementari);
-
-                                Lib.continuar();
-                                break;
-                            case 2:
-                                maquinaAdmin.setEstaPremiat(false);
-                                while (!maquinaAdmin.getEstaPremiat()){
-                                    sorteig = new Sorteig();
-                                    numeroSorteig = sorteig.generarNumeroSorteig();
-                                    reintegroBombo = sorteig.getReintegroBombo();
-                                    complementari = sorteig.getComplementari();
-                                    maquinaAdmin.coomprovarPremi(boletoJuagador,numeroSorteig
-                                            , maquinaAdmin.getReintegroJugador(), reintegroBombo, complementari);
-                                    if (maquinaAdmin.getEstaPremiat()){
-                                        System.out.println("Ha fet un total de: " + maquinaAdmin.getContadorJugades()
-                                                + " jugades.");
-                                        maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo,complementari);
-                                    }
-                                }
-                                maquinaAdmin.setContadorJugades(0);
-                                Lib.continuar();
-                                break;
-                            case 3:
-                                maquinaAdmin.setEstaPremiat(false);
-                                while (!maquinaAdmin.getEstaPremiat()){
-                                    sorteig = new Sorteig();
-                                    numeroSorteig = sorteig.generarNumeroSorteig();
-                                    reintegroBombo = sorteig.getReintegroBombo();
-                                    complementari = sorteig.getComplementari();
-                                    maquinaAdmin.coomprovarPremi(boletoJuagador,numeroSorteig
-                                            , maquinaAdmin.getReintegroJugador(), reintegroBombo, complementari
-                                            , "sense Reintegro");
-                                    if (maquinaAdmin.getEstaPremiat()){
-                                        System.out.println("Ha fet un total de: " +maquinaAdmin.getContadorJugades()
-                                                + " jugades.");
-                                        maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo,complementari);
-
-                                    }
-                                }
-                                maquinaAdmin.setContadorJugades(0);
-                                Lib.continuar();
-                                break;
-                            case 4:
-                                for (int i=0; i<10000; i++){
-                                    sorteig = new Sorteig();
-                                    numeroSorteig = sorteig.generarNumeroSorteig();
-                                    reintegroBombo = sorteig.getReintegroBombo();
-                                    complementari = sorteig.getComplementari();
-                                    maquinaAdmin.coomprovarPremi(boletoJuagador,numeroSorteig
-                                            , maquinaAdmin.getReintegroJugador(), reintegroBombo, complementari);
-                                }
-                                System.out.println("En: " + maquinaAdmin.getContadorJugades() + " jugades."
-                                        + " Ha tret: ");
-                                System.out.print("Categoria especial: " + maquinaAdmin.getContadorEspecial() + "\n");
-                                System.out.print("Primera categoria: " + maquinaAdmin.getContadorPrimer() + "\n");
-                                System.out.print("Segona categoria: " + maquinaAdmin.getContadorSegon() + "\n");
-                                System.out.print("Tercera categoria: " + maquinaAdmin.getContadorTercer() + "\n");
-                                System.out.print("Cuarta categoria: " + maquinaAdmin.getContadorCuart() + "\n");
-                                System.out.print("Quinta categoria: " + maquinaAdmin.getContadorCinque() + "\n");
-                                System.out.print("Reintegraments: " + maquinaAdmin.getContadorReintegros() + "\n");
-                                maquinaAdmin.setContadorJugades(0);
-                                maquinaAdmin.setContadorEspecial(0);
-                                maquinaAdmin.setContadorPrimer(0);
-                                maquinaAdmin.setContadorSegon(0);
-                                maquinaAdmin.setContadorTercer(0);
-                                maquinaAdmin.setContadorCuart(0);
-                                maquinaAdmin.setContadorCinque(0);
-                                maquinaAdmin.setContadorReintegros(0);
-                                Lib.continuar();
-                                break;
-                            case 5:
-                                maquinaAdmin.setEstaPremiat(false);
-                                while (!maquinaAdmin.getEstaPremiat()){
-                                    sorteig = new Sorteig();
-                                    numeroSorteig = sorteig.generarNumeroSorteig();
-                                    reintegroBombo = sorteig.getReintegroBombo();
-                                    complementari = sorteig.getComplementari();
-                                    maquinaAdmin.coomprovarPremi(boletoJuagador,numeroSorteig
-                                            , maquinaAdmin.getReintegroJugador(), reintegroBombo);
-                                    if (maquinaAdmin.getEstaPremiat()){
-                                        maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo,complementari);
-                                    }
-                                }
-                                System.out.println("Ha fet un total de: " + " jugades.");
-
-
-                                Lib.continuar();
-                                break;
-                        }
-                        if (eleccio2<0 || eleccio2>5){
-                            Lib.mensajeError();
-                        }
-                    }while (eleccio2 != 0);
+                case 3://Juagar
+                    jugar();
             }
             if (eleccio<0 || eleccio>3){
                 Lib.mensajeError();
@@ -191,5 +87,113 @@ public class Principal {
             lec.nextLine();
             return eleccio;
         } while (eleccio >= 0 || eleccio <= 5);
+    }
+
+    public static void jugar(){
+        do {
+            eleccio2 = mostrarMenu();
+            switch (eleccio2) {
+                case 0://eixir
+                    break;
+                case 1://jugar una sola vegada.
+                    sorteig = new Sorteig();
+                    numeroSorteig = sorteig.generarNumeroSorteig();
+                    reintegroBombo = sorteig.getReintegroBombo();
+                    complementari = sorteig.getComplementari();
+                    maquinaAdmin.coomprovarPremi(boletoJuagador,numeroSorteig
+                            , maquinaAdmin.getReintegroJugador(), reintegroBombo, complementari);
+                    maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo,complementari);
+
+                    Lib.continuar();
+                    break;
+                case 2://jugar fins a premi
+                    maquinaAdmin.setEstaPremiat(false);
+                    while (!maquinaAdmin.getEstaPremiat()){
+                        sorteig = new Sorteig();
+                        numeroSorteig = sorteig.generarNumeroSorteig();
+                        reintegroBombo = sorteig.getReintegroBombo();
+                        complementari = sorteig.getComplementari();
+                        maquinaAdmin.coomprovarPremi(boletoJuagador,numeroSorteig
+                                , maquinaAdmin.getReintegroJugador(), reintegroBombo, complementari);
+                        if (maquinaAdmin.getEstaPremiat()){
+                            System.out.println("Ha fet un total de: " + maquinaAdmin.getContadorJugades()
+                                    + " jugades.");
+                            maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo,complementari);
+                        }
+                    }
+                    maquinaAdmin.setContadorJugades(0);
+                    Lib.continuar();
+                    break;
+                case 3:
+                    maquinaAdmin.setEstaPremiat(false);
+                    while (!maquinaAdmin.getEstaPremiat()){
+                        sorteig = new Sorteig();
+                        numeroSorteig = sorteig.generarNumeroSorteig();
+                        reintegroBombo = sorteig.getReintegroBombo();
+                        complementari = sorteig.getComplementari();
+                        maquinaAdmin.coomprovarPremi(boletoJuagador,numeroSorteig
+                                , maquinaAdmin.getReintegroJugador(), reintegroBombo, complementari
+                                , "sense Reintegro");
+                        if (maquinaAdmin.getEstaPremiat()){
+                            System.out.println("Ha fet un total de: " +maquinaAdmin.getContadorJugades()
+                                    + " jugades.");
+                            maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo,complementari);
+
+                        }
+                    }
+                    maquinaAdmin.setContadorJugades(0);
+                    Lib.continuar();
+                    break;
+                case 4:
+                    for (int i=0; i<10000; i++){
+                        sorteig = new Sorteig();
+                        numeroSorteig = sorteig.generarNumeroSorteig();
+                        reintegroBombo = sorteig.getReintegroBombo();
+                        complementari = sorteig.getComplementari();
+                        maquinaAdmin.coomprovarPremi(boletoJuagador,numeroSorteig
+                                , maquinaAdmin.getReintegroJugador(), reintegroBombo, complementari);
+                    }
+                    System.out.println("En: " + maquinaAdmin.getContadorJugades() + " jugades."
+                            + " Ha tret: ");
+                    System.out.print("Categoria especial: " + maquinaAdmin.getContadorEspecial() + "\n");
+                    System.out.print("Primera categoria: " + maquinaAdmin.getContadorPrimer() + "\n");
+                    System.out.print("Segona categoria: " + maquinaAdmin.getContadorSegon() + "\n");
+                    System.out.print("Tercera categoria: " + maquinaAdmin.getContadorTercer() + "\n");
+                    System.out.print("Cuarta categoria: " + maquinaAdmin.getContadorCuart() + "\n");
+                    System.out.print("Quinta categoria: " + maquinaAdmin.getContadorCinque() + "\n");
+                    System.out.print("Reintegraments: " + maquinaAdmin.getContadorReintegros() + "\n");
+                    maquinaAdmin.setContadorJugades(0);
+                    maquinaAdmin.setContadorEspecial(0);
+                    maquinaAdmin.setContadorPrimer(0);
+                    maquinaAdmin.setContadorSegon(0);
+                    maquinaAdmin.setContadorTercer(0);
+                    maquinaAdmin.setContadorCuart(0);
+                    maquinaAdmin.setContadorCinque(0);
+                    maquinaAdmin.setContadorReintegros(0);
+                    Lib.continuar();
+                    break;
+                case 5:
+                    maquinaAdmin.setEstaPremiat(false);
+                    while (!maquinaAdmin.getEstaPremiat()){
+                        sorteig = new Sorteig();
+                        numeroSorteig = sorteig.generarNumeroSorteig();
+                        reintegroBombo = sorteig.getReintegroBombo();
+                        complementari = sorteig.getComplementari();
+                        maquinaAdmin.coomprovarPremi(boletoJuagador,numeroSorteig
+                                , maquinaAdmin.getReintegroJugador(), reintegroBombo);
+                        if (maquinaAdmin.getEstaPremiat()){
+                            maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo,complementari);
+                        }
+                    }
+                    System.out.println("Ha fet un total de: " + " jugades.");
+
+
+                    Lib.continuar();
+                    break;
+            }
+            if (eleccio2<0 || eleccio2>5){
+                Lib.mensajeError();
+            }
+        }while (eleccio2 != 0);
     }
 }

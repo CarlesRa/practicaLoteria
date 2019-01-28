@@ -5,27 +5,18 @@ import com.carlesramos.practicaloteria.utils.Lib;
 public class Sorteig {
 
     private int [] bombo1;
-    //private int reintegroJugador;
     private int reintegroBombo;
     private int complementari;
     private int [] numeroSorteig;
 
     public Sorteig(){
-
         bombo1 = new int[50];
-        //reintegroJugador = Lib.random(0,9);
         reintegroBombo = Lib.random(0,9);
-        //numeroSorteig = generarNumeroSorteig();
-
     }
 
     public int [] getBombo1(){
         return bombo1;
     }
-
-   /* public int getReintegroJugador() {
-        return reintegroJugador;
-    }*/
 
     public int getReintegroBombo() {
         return reintegroBombo;
@@ -37,10 +28,6 @@ public class Sorteig {
 
     public void setComplementari(int complementari){
         this.complementari = complementari;
-    }
-
-    public int [] getNumeroSorteig(){
-        return numeroSorteig;
     }
 
     public void plenarBombo1(){
