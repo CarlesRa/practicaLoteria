@@ -138,7 +138,7 @@ public class Administracio {
                     if (numero<1 || numero>49){
                         Lib.mensajeError();
                     }
-                }while (numero<0 || numero>49);
+                }while (numero<1 || numero>49);
 
                 for (int z=0; z<i; z++){
                     if (numero == boletoJugador[z]) {
