@@ -348,9 +348,12 @@ public class Administracio {
             }
         }
         if (contador == 6 && reintegroJugador == reintegroBombo){
-
+            setContadorJugades(getContadorJugades()+1);
             opcioPremi = 1;
             estaPremiat = true;
+        }
+        else{
+            setContadorJugades(getContadorJugades()+1);
         }
     }
 

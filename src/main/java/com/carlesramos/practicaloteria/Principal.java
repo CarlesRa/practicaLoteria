@@ -156,7 +156,7 @@ public class Principal {
                     Lib.continuar();
                     break;
                 case 4://Jugar 10.000 vegades
-                    for (int i=0; i<100000000; i++){
+                    for (int i=0; i<10000; i++){
                         sorteig = new Sorteig();
                         numeroSorteig = sorteig.generarNumeroSorteig();
                         reintegroBombo = sorteig.getReintegroBombo();
@@ -196,9 +196,8 @@ public class Principal {
                             maquinaAdmin.mostrarPremi(numeroSorteig,reintegroBombo,complementari);
                         }
                     }
-                    System.out.println("Ha fet un total de: " + " jugades.");
-
-
+                    System.out.println("Ha fet un total de: " + maquinaAdmin.getContadorJugades() + " jugades.");
+                    maquinaAdmin.setContadorJugades(0);
                     Lib.continuar();
                     break;
             }
