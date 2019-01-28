@@ -38,6 +38,7 @@ public class Administracio {
     }
 
     //getters i setters
+
     public int getContadorJugades() {
         return contadorJugades;
     }
@@ -117,6 +118,8 @@ public class Administracio {
     public void setEstaPremiat(boolean estaPremiat){
         this.estaPremiat = estaPremiat;
     }
+
+    //metodes
 
     /**
      * plena una primitiva manualment
@@ -362,43 +365,51 @@ public class Administracio {
     public void mostrarPremi(int [] numeroSorteig, int reintegroBombo, int complementari){
         switch (opcioPremi){
             case 1:
-                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " C:"+ complementari+" R:"
-                        + reintegroBombo+ " voste te: "+Arrays.toString(getBoletoJugador())+ " R:" + reintegroJugador);
+                System.out.println("Ha eixit: "+Arrays.toString(Lib.ordernaVector(numeroSorteig))
+                        + " C:"+ complementari+" R:" + reintegroBombo+ " voste te: "
+                        +Arrays.toString(Lib.ordernaVector(getBoletoJugador()))+ " R:" + reintegroJugador);
                 System.out.println("El seu premi es: " + premis.ESPECIAL);
                 break;
             case 2:
-                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " C:"+ complementari+" R:"
-                        + reintegroBombo+ " voste te: "+Arrays.toString(getBoletoJugador())+ " R:" + reintegroJugador);
+                System.out.println("Ha eixit: "+Arrays.toString(Lib.ordernaVector(numeroSorteig))+ " C:"+ complementari
+                        +" R:" + reintegroBombo+ " voste te: "+Arrays.toString(Lib.ordernaVector(getBoletoJugador()))
+                        + " R:" + reintegroJugador);
                 System.out.println("El seu premi es: " + premis.PRIMERA);
                 break;
             case 3:
-                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " C:"+ complementari+" R:"
-                        + reintegroBombo+ " voste te: "+Arrays.toString(getBoletoJugador())+ " R:" + reintegroJugador);
+                System.out.println("Ha eixit: "+Arrays.toString(Lib.ordernaVector(numeroSorteig)) + " C:"
+                        + complementari+" R:" + reintegroBombo+ " voste te: "
+                        +Arrays.toString(Lib.ordernaVector(getBoletoJugador()))+ " R:" + reintegroJugador);
                 System.out.println("El seu premi es: " + premis.SEGONA);
                 break;
             case 4:
-                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " C:"+ complementari+" R:"
-                        + reintegroBombo+ " voste te: "+Arrays.toString(getBoletoJugador())+ " R:" + reintegroJugador);
+                System.out.println("Ha eixit: "+Arrays.toString(Lib.ordernaVector(numeroSorteig)) + " C:"
+                        + complementari+" R:" + reintegroBombo+ " voste te: "
+                        +Arrays.toString(Lib.ordernaVector(getBoletoJugador()))+ " R:" + reintegroJugador);
                 System.out.println("El seu premi es: " + premis.TERCERA);
                 break;
             case 5:
-                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " C:"+ complementari+" R:"
-                        + reintegroBombo+ " voste te: "+Arrays.toString(getBoletoJugador())+ " R:" + reintegroJugador);
+                System.out.println("Ha eixit: "+Arrays.toString(Lib.ordernaVector(numeroSorteig))
+                        + " C:"+ complementari+" R:" + reintegroBombo+ " voste te: "
+                        +Arrays.toString(Lib.ordernaVector(getBoletoJugador()))+ " R:" + reintegroJugador);
                 System.out.println("El seu premi es: " + premis.CUARTA);
                 break;
             case 6:
-                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " C:"+ complementari+" R:"
-                        + reintegroBombo+ " voste te: "+Arrays.toString(getBoletoJugador())+ " R:" + reintegroJugador);
+                System.out.println("Ha eixit: "+Arrays.toString(Lib.ordernaVector(numeroSorteig)) + " C:"
+                        + complementari+" R:" + reintegroBombo+ " voste te: "
+                        +Arrays.toString(Lib.ordernaVector(getBoletoJugador()))+ " R:" + reintegroJugador);
                 System.out.println("El seu premi es: " + premis.QUINTA);
                 break;
             case 7:
-                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " C:"+ complementari+" R:"
-                        + reintegroBombo+ " voste te: "+Arrays.toString(getBoletoJugador())+ " R:" + reintegroJugador);
+                System.out.println("Ha eixit: "+Arrays.toString(Lib.ordernaVector(numeroSorteig))
+                        + " C:"+ complementari+" R:" + reintegroBombo+ " voste te: "
+                        +Arrays.toString(Lib.ordernaVector(getBoletoJugador()))+ " R:" + reintegroJugador);
                 System.out.println("El seu premi es: " + premis.DEVOLUCIÓ_DINES);
                 break;
             case 8:
-                System.out.println("Ha eixit: "+Arrays.toString(numeroSorteig) + " C:"+ complementari+" R:"
-                        + reintegroBombo+ " voste te: "+Arrays.toString(getBoletoJugador())+ " R:" + reintegroJugador);
+                System.out.println("Ha eixit: "+Arrays.toString(Lib.ordernaVector(numeroSorteig)) + " C:"
+                        + complementari+" R:" + reintegroBombo+ " voste te: "
+                        +Arrays.toString(Lib.ordernaVector(getBoletoJugador()))+ " R:" + reintegroJugador);
                 System.out.println("El seu premi es: " + premis.NO_PREMIAT);
                 break;
         }
@@ -410,21 +421,4 @@ public class Administracio {
             numsBombo1++;
         }
     }
-
-   /* public int [] generarNumClient(){
-        int [] numeros = new int[6];
-        int random;
-        int posicioFinal=48;
-        plenarBombo();
-        for (int i=0; i<=numeros.length; i++){
-            random = Lib.random(0,posicioFinal);
-            if (i<numeros.length) {
-                numeros[i] = bomboAdmin[random];
-               bomboAdmin[random] = bomboAdmin[posicioFinal];
-            }
-            posicioFinal--;
-        }
-        bomboAdmin = numeros;
-        return numeros;
-    }*/
 }

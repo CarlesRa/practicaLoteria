@@ -68,4 +68,26 @@ public class Lib {
         aleatori=rnd.nextInt(max-min+1)+min;
         return aleatori;
     }
+
+    public static void intercambio(int[] vector, int i, int j) {
+        int aux = vector[i];
+        vector[i] = vector[j];
+        vector[j] = aux;
+
+    }
+
+    public static int [] ordernaVector(int[] vector) {
+        boolean hayCambios = true;
+        while(hayCambios) {
+            hayCambios = false;
+            for(int i = 0; i < vector.length - 1; i++) {
+                if(vector[i] > vector[i+1]) {
+                    intercambio(vector, i, i+1);
+                    hayCambios = true;
+                }
+            }
+        }
+        return vector;
+    }
+
 }

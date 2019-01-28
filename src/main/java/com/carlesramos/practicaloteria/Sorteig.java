@@ -37,6 +37,11 @@ public class Sorteig {
         this.complementari = complementari;
     }
 
+    //metodes
+
+    /**
+     * metode per omplir el bombo amb numeros del 1 al 49.
+     */
     public void plenarBombo1(){
         int numsBombo1=1;
         for (int i=0; i<bombo1.length; i++){
