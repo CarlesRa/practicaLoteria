@@ -13,7 +13,7 @@ public class Sorteig {
      * constructor de sortejos
      */
     public Sorteig(){
-        bombo1 = new int[50];
+        bombo1 = new int[49];
         reintegroBombo = Lib.random(0,9);
     }
 
@@ -35,7 +35,7 @@ public class Sorteig {
     }
 
     public void plenarBombo1(){
-        int numsBombo1=0;
+        int numsBombo1=1;
         for (int i=0; i<bombo1.length; i++){
             bombo1[i]=numsBombo1;
             numsBombo1++;
@@ -49,7 +49,7 @@ public class Sorteig {
     public int []generarNumeroSorteig(){
         int [] numeros = new int[6];
         int random;
-        int posicioFinal=49;
+        int posicioFinal=48;
         plenarBombo1();
         for (int i=0; i<=numeros.length; i++){
             random = Lib.random(0,posicioFinal);

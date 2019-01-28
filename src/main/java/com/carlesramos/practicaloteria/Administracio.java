@@ -18,7 +18,7 @@ public class Administracio {
     private int contadorCuart;
     private int contadorCinque;
     private int contadorReintegros;
-
+    private int [] bomboAdmin;
     /**
      * constructor de administració
      */
@@ -35,6 +35,7 @@ public class Administracio {
         contadorCuart = 0;
         contadorCinque = 0;
         contadorReintegros = 0;
+
     }
 
     //getters i setters
