@@ -51,6 +51,10 @@ public class Principal {
 
     }
 
+    /**
+     * mostra el menu inicial
+     * @return retorna la eleccio del switch
+     */
     public  static int menuInicial(){
         int eleccio;
         do {
@@ -69,7 +73,11 @@ public class Principal {
         }while (eleccio >=0 || eleccio <=2);
     }
 
-    public static int mostrarMenu() {
+    /**
+     * mostra les opcions de joc
+     * @returnretorna retorna la elecció del switch
+     */
+    public static int menuJugar() {
         int eleccio;
         do {
             Lib.limpiarPantalla();
@@ -89,9 +97,12 @@ public class Principal {
         } while (eleccio >= 0 || eleccio <= 5);
     }
 
+    /**
+     * conte les opcions de joc del menuJugar
+     */
     public static void jugar(){
         do {
-            eleccio2 = mostrarMenu();
+            eleccio2 = menuJugar();
             switch (eleccio2) {
                 case 0://eixir
                     break;

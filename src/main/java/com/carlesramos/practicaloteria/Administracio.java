@@ -18,6 +18,10 @@ public class Administracio {
     private int contadorCuart;
     private int contadorCinque;
     private int contadorReintegros;
+
+    /**
+     * constructor de administració
+     */
     public Administracio(){
         reintegroBombo = new Sorteig ();
         lec = new Scanner(System.in);
@@ -33,6 +37,7 @@ public class Administracio {
         contadorReintegros = 0;
     }
 
+    //getters i setters
     public int getContadorJugades() {
         return contadorJugades;
     }
@@ -113,6 +118,9 @@ public class Administracio {
         this.estaPremiat = estaPremiat;
     }
 
+    /**
+     * plena una primitiva manualment
+     */
     public void primitivaManual(){
         int random;
         int [] boletoJugador = new int[6];
@@ -153,6 +161,10 @@ public class Administracio {
         this.boletoJugador = boletoJugador;
         reintegroJugador = Lib.random(0,9);
     }
+
+    /**
+     * plena una primitiva aleatoria.
+     */
     public void primitivaAleatoria(){
         int [] numeros = new int[6];
         int random=0;
@@ -168,7 +180,14 @@ public class Administracio {
         reintegroJugador = Lib.random(0,9);
     }
 
-    //comprovar si el el numero esta premiat e indicar el premi.
+    /**
+     * comprova si el premi esta premiat
+     * @param numeroClient pasem el número del client
+     * @param numeroSorteig pasem el numero que ha eixit al sorteig
+     * @param reintegroJugador pasem el reintegro del jugador
+     * @param reintegroBombo pasem el reintegro del sorteig
+     * @param complementari pasem el complementari del sorteig
+     */
     public void coomprovarPremi(int [] numeroClient,int [] numeroSorteig, int reintegroJugador
             , int reintegroBombo, int complementari){
         int contador = 0;
@@ -241,7 +260,15 @@ public class Administracio {
 
     }
 
-    //comprova si hi ha premi pero sense tindre en compte els reintegraments.
+    /**
+     * comprova el premi sense tindre en compte els del reintegrament
+     * @param numeroClient pasem el numero de client.
+     * @param numeroSorteig pasem el numero del sorteig.
+     * @param reintegroJugador pasem el reintegro del client
+     * @param reintegroBombo pasem el reintegro del sorteig
+     * @param complementari pasem el complementari del sorteig
+     * @param noReintegrament pasem un string per diferenciar els metodes
+     */
     public void coomprovarPremi(int [] numeroClient, int [] numeroSorteig, int reintegroJugador
             , int reintegroBombo, int complementari, String noReintegrament){
         opcioPremi = 0;
@@ -302,6 +329,13 @@ public class Administracio {
 
     }
 
+    /**
+     * comprova si ha hagut premi especial.
+     * @param numeroClient pasem el numero del client.
+     * @param numeroSorteig pasem el numero del sorteig.
+     * @param reintegroJugador pasem el reintegro del client.
+     * @param reintegroBombo pasem el reintegro del sorteig.
+     */
     public void coomprovarPremi(int [] numeroClient, int [] numeroSorteig, int reintegroJugador
             , int reintegroBombo){
         opcioPremi = 0;
@@ -320,6 +354,12 @@ public class Administracio {
         }
     }
 
+    /**
+     * mosytra els premis segons els acerts.
+     * @param numeroSorteig pasem el numero del sorteig.
+     * @param reintegroBombo pasem el reintegro del sorteig.
+     * @param complementari pasem el complementari del sorteig.
+     */
     public void mostrarPremi(int [] numeroSorteig, int reintegroBombo, int complementari){
         switch (opcioPremi){
             case 1:

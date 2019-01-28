@@ -9,11 +9,15 @@ public class Sorteig {
     private int complementari;
     private int [] numeroSorteig;
 
+    /**
+     * constructor de sortejos
+     */
     public Sorteig(){
         bombo1 = new int[50];
         reintegroBombo = Lib.random(0,9);
     }
 
+    //getters i setters
     public int [] getBombo1(){
         return bombo1;
     }
@@ -38,6 +42,10 @@ public class Sorteig {
         }
     }
 
+    /**
+     * genera el numero del sorteig
+     * @return retorna el numero del sorteig
+     */
     public int []generarNumeroSorteig(){
         int [] numeros = new int[6];
         int random;
