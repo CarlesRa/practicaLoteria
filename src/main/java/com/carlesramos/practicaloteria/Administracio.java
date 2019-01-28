@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Administracio {
     public enum premis{ESPECIAL,PRIMERA,SEGONA,TERCERA,CUARTA,QUINTA,DEVOLUCIÓ_DINES, NO_PREMIAT}
     private Scanner lec;
-    private Sorteig reintegroBombo;
     private int reintegroJugador;
     private boolean estaPremiat;
     private int opcioPremi;
@@ -23,7 +22,7 @@ public class Administracio {
      * constructor de administració
      */
     public Administracio(){
-        reintegroBombo = new Sorteig ();
+        bomboAdmin = new int[49];
         lec = new Scanner(System.in);
         opcioPremi = 0;
         boletoJugador = new int[6];
@@ -124,7 +123,6 @@ public class Administracio {
      */
     public void primitivaManual(){
         int random;
-        int [] boletoJugador = new int[6];
         boolean estaRepetido;
         int numero;
         for(int i=0; i<boletoJugador.length; i++) {
@@ -159,7 +157,6 @@ public class Administracio {
                     }
             }
         }while(!estaRepetido);
-        this.boletoJugador = boletoJugador;
         reintegroJugador = Lib.random(0,9);
     }
 
@@ -167,17 +164,15 @@ public class Administracio {
      * plena una primitiva aleatoria.
      */
     public void primitivaAleatoria(){
-        int [] numeros = new int[6];
         int random=0;
         int posicioFinal=48;
-        reintegroBombo.plenarBombo1();
-        for (int i=0; i<numeros.length; i++){
+        plenarBombo();
+        for (int i=0; i<boletoJugador.length; i++){
             random = Lib.random(0,posicioFinal);
-            numeros [i] = reintegroBombo.getBombo1()[random];
-            reintegroBombo.getBombo1()[random] = reintegroBombo.getBombo1()[posicioFinal];
+            boletoJugador [i] = bomboAdmin[random];
+            bomboAdmin[random] = bomboAdmin[posicioFinal];
             posicioFinal--;
         }
-        this.boletoJugador = numeros;
         reintegroJugador = Lib.random(0,9);
     }
 
@@ -408,4 +403,28 @@ public class Administracio {
                 break;
         }
     }
+    public void plenarBombo(){
+        int numsBombo1=1;
+        for (int i=0; i<bomboAdmin.length; i++){
+            bomboAdmin[i]=numsBombo1;
+            numsBombo1++;
+        }
+    }
+
+   /* public int [] generarNumClient(){
+        int [] numeros = new int[6];
+        int random;
+        int posicioFinal=48;
+        plenarBombo();
+        for (int i=0; i<=numeros.length; i++){
+            random = Lib.random(0,posicioFinal);
+            if (i<numeros.length) {
+                numeros[i] = bomboAdmin[random];
+               bomboAdmin[random] = bomboAdmin[posicioFinal];
+            }
+            posicioFinal--;
+        }
+        bomboAdmin = numeros;
+        return numeros;
+    }*/
 }

@@ -14,16 +14,19 @@ public class Sorteig {
      */
     public Sorteig(){
         bombo1 = new int[49];
-        reintegroBombo = Lib.random(0,9);
     }
 
     //getters i setters
-    public int [] getBombo1(){
-        return bombo1;
+
+    public int getReintegroBombo(){
+        return reintegroBombo;
     }
 
-    public int getReintegroBombo() {
-        return reintegroBombo;
+    public int [] getNumeroSorteig(){
+        return numeroSorteig;
+    }
+    public int [] getBombo1(){
+        return bombo1;
     }
 
     public int getComplementari(){
@@ -64,6 +67,11 @@ public class Sorteig {
         }
         numeroSorteig = numeros;
         return numeros;
+    }
+
+    public int generarReintegroBombo(){
+        reintegroBombo = Lib.random(0,9);
+        return reintegroBombo;
     }
 
 }
