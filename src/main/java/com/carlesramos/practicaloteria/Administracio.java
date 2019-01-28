@@ -135,7 +135,7 @@ public class Administracio {
                     System.out.print("Introduix el número " + (i + 1) + ":");
                     numero = lec.nextInt();
                     lec.nextLine();
-                    if (numero<0 || numero>49){
+                    if (numero<1 || numero>49){
                         Lib.mensajeError();
                     }
                 }while (numero<0 || numero>49);
