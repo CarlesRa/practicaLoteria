@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class Principal {
     private static int eleccio;
+    private static int eleccio2;
     private static Scanner lec;
     private static Administracio administracio;
 
@@ -98,8 +99,8 @@ public class Principal {
      */
     public static void jugar(){
         do {
-            eleccio = menuJugar();
-            switch (eleccio) {
+            eleccio2 = menuJugar();
+            switch (eleccio2) {
                 case 0://eixir
                     break;
                 case 1:
@@ -118,9 +119,9 @@ public class Principal {
                     administracio.jugarFinsEspecial();
                     break;
             }
-            if (eleccio<0 || eleccio>5){
+            if (eleccio2<0 || eleccio2>5){
                 Lib.mensajeError();
             }
-        }while (eleccio != 0);
+        }while (eleccio2 != 0);
     }
 }
