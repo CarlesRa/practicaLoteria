@@ -18,7 +18,7 @@ public class Principal {
                 System.out.println("Adeu!!! fins la proxima.");
             }
             else if (eleccio==3 && administracio.getBoletoJugador()[0] == 0
-                    && administracio.getBoletoJugador()[1] == 0){
+                && administracio.getBoletoJugador()[1] == 0){
                 System.out.println("No ha plenat el bolet....");
                 eleccio = -1;
             }
