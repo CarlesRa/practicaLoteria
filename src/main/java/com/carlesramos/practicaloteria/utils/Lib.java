@@ -69,25 +69,32 @@ public class Lib {
         return aleatori;
     }
 
-    public static void intercambio(int[] vector, int i, int j) {
-        int aux = vector[i];
-        vector[i] = vector[j];
-        vector[j] = aux;
-
-    }
-
+    /**
+     * metode per orddenar vector de venor a major
+     * @param vector vector a ordenar.
+     * @return vector ordenat
+     */
     public static int [] ordernaVector(int[] vector) {
         boolean hayCambios = true;
         while(hayCambios) {
             hayCambios = false;
             for(int i = 0; i < vector.length - 1; i++) {
                 if(vector[i] > vector[i+1]) {
-                    intercambio(vector, i, i+1);
+                    int aux = vector[i];
+                    vector[i] = vector[i+1];
+                    vector[i+1] = aux;
                     hayCambios = true;
                 }
             }
         }
         return vector;
+    }
+
+    public static void intercambio(int[] vector, int i, int j) {
+        int aux = vector[i];
+        vector[i] = vector[j];
+        vector[j] = aux;
+
     }
 
 }
