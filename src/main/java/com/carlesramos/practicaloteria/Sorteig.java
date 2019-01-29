@@ -5,9 +5,9 @@ import com.carlesramos.practicaloteria.utils.Lib;
 public class Sorteig {
 
     private int [] bombo1;
+    private int [] numeroSorteig;
     private int reintegroBombo;
     private int complementari;
-    private int [] numeroSorteig;
 
     /**
      * constructor de sortejos
@@ -80,4 +80,3 @@ public class Sorteig {
     }
 
 }
-

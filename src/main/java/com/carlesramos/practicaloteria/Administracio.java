@@ -1,7 +1,8 @@
 package com.carlesramos.practicaloteria;
+
 import com.carlesramos.practicaloteria.utils.Lib;
-import java.util.Arrays;
 import java.util.Scanner;
+
 public class Administracio {
     public enum premis{ESPECIAL,PRIMERA,SEGONA,TERCERA,CUARTA,QUINTA,DEVOLUCIÓ_DINES, NO_PREMIAT}
     private Scanner lec;
@@ -106,9 +107,9 @@ public class Administracio {
      */
     public void jugarUnaVegada(){
         terminal.coomprovarPremi(getBoletoJugador(),sorteig.generarNumeroSorteig()
-                , getReintegroJugador(), sorteig.generarReintegroBombo(), sorteig.getComplementari());
+        , getReintegroJugador(), sorteig.generarReintegroBombo(), sorteig.getComplementari());
         terminal.mostrarPremi(sorteig.getNumeroSorteig(),sorteig.getReintegroBombo()
-                ,sorteig.getComplementari(),getBoletoJugador(),getReintegroJugador());
+        ,sorteig.getComplementari(),getBoletoJugador(),getReintegroJugador());
         Lib.continuar();
     }
 
@@ -120,12 +121,12 @@ public class Administracio {
         while (!terminal.getEstaPremiat()){
 
             terminal.coomprovarPremi(getBoletoJugador(),sorteig.generarNumeroSorteig()
-                    , getReintegroJugador(), sorteig.generarReintegroBombo(), sorteig.getComplementari());
+            , getReintegroJugador(), sorteig.generarReintegroBombo(), sorteig.getComplementari());
             if (terminal.getEstaPremiat()){
                 System.out.println("Ha fet un total de: " + terminal.getContadorJugades()
                         + " jugades.");
                 terminal.mostrarPremi(sorteig.getNumeroSorteig(),sorteig.getReintegroBombo(),
-                        sorteig.getComplementari(), getBoletoJugador(),getReintegroJugador());
+                sorteig.getComplementari(), getBoletoJugador(),getReintegroJugador());
             }
         }
         terminal.setContadorJugades(0);
@@ -140,13 +141,13 @@ public class Administracio {
         while (!terminal.getEstaPremiat()){
 
             terminal.coomprovarPremi(getBoletoJugador(),sorteig.generarNumeroSorteig()
-                    , getReintegroJugador(), sorteig.generarReintegroBombo(), sorteig.getComplementari()
-                    , "sense Reintegro");
+            , getReintegroJugador(), sorteig.generarReintegroBombo(), sorteig.getComplementari()
+            , "sense Reintegro");
             if (terminal.getEstaPremiat()){
                 System.out.println("Ha fet un total de: " + terminal.getContadorJugades()
-                        + " jugades.");
+                + " jugades.");
                 terminal.mostrarPremi(sorteig.getNumeroSorteig(),sorteig.getReintegroBombo()
-                        ,sorteig.getComplementari(),getBoletoJugador(), getReintegroJugador());
+                ,sorteig.getComplementari(),getBoletoJugador(), getReintegroJugador());
 
             }
         }

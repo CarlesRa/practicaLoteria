@@ -27,6 +27,7 @@ public class Terminal {
         contadorCinque = 0;
         contadorReintegros = 0;
         opcioPremi = 0;
+        estaPremiat = false;
     }
 
     public int getContadorJugades() {
@@ -127,56 +128,55 @@ public class Terminal {
             }
         }
         if (contador == 6 && reintegroJugador == reintegroBombo){
-            setContadorJugades(getContadorJugades()+1);
-            setContadorEspecial(getContadorEspecial()+1);
+            contadorEspecial++;
             opcioPremi = 1;
             estaPremiat = true;
         }
 
         else if (contador == 6 && reintegroJugador != reintegroBombo){
-            setContadorJugades(getContadorJugades()+1);
-            setContadorPrimer(getContadorPrimer()+1);
+            contadorPrimer++;
+            contadorJugades++;
             opcioPremi = 2;
             estaPremiat = true;
         }
 
         else if (contador == 5 && aciertoComplementario){
-            setContadorJugades(getContadorJugades()+1);
-            setContadorSegon(getContadorSegon()+1);
+            contadorSegon++;
+           contadorJugades++;
             opcioPremi = 3;
             estaPremiat = true;
         }
 
         else if (contador == 5){
-            setContadorJugades(getContadorJugades()+1);
-            setContadorTercer(getContadorTercer()+1);
+            contadorTercer++;
+            contadorJugades++;
             opcioPremi = 4;
             estaPremiat = true;
         }
 
         else if (contador == 4){
-            setContadorJugades(getContadorJugades()+1);
-            setContadorCuart(getContadorCuart()+1);
+            contadorCuart++;
+            contadorJugades++;
             opcioPremi = 5;
             estaPremiat = true;
         }
 
         else if (contador == 3){
-            setContadorJugades(getContadorJugades()+1);
-            setContadorCinque(getContadorCinque()+1);
+            contadorCinque++;
+            contadorJugades++;
             opcioPremi = 6;
             estaPremiat = true;
         }
 
         else if (reintegroJugador == reintegroBombo){
-            setContadorJugades(getContadorJugades()+1);
-            setContadorReintegros(getContadorReintegros()+1);
+            contadorReintegros++;
+            contadorJugades++;
             opcioPremi = 7;
             estaPremiat = true;
         }
 
         else if (contador <3){
-            setContadorJugades(getContadorJugades()+1);
+            contadorJugades++;
             opcioPremi = 8;
             estaPremiat = false;
         }
@@ -340,4 +340,3 @@ public class Terminal {
         }
     }
 }
-

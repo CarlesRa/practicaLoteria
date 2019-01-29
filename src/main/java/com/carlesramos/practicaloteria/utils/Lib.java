@@ -1,8 +1,10 @@
 package com.carlesramos.practicaloteria.utils;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import  java.util.Scanner;
 import java.util.Random;
+
 public class Lib {
     static  Scanner lec = new Scanner (System.in);
     public static  String limpiarPantalla(){
@@ -74,27 +76,19 @@ public class Lib {
      * @param vector vector a ordenar.
      * @return vector ordenat
      */
-    public static int [] ordernaVector(int[] vector) {
-        boolean hayCambios = true;
-        while(hayCambios) {
-            hayCambios = false;
-            for(int i = 0; i < vector.length - 1; i++) {
+    public static int [] ordernaVector(int [] vector) {
+        boolean haCamviat = true;
+        while(haCamviat) {
+            haCamviat = false;
+            for(int i = 0; i < vector.length-1; i++) {
                 if(vector[i] > vector[i+1]) {
                     int aux = vector[i];
                     vector[i] = vector[i+1];
                     vector[i+1] = aux;
-                    hayCambios = true;
+                    haCamviat = true;
                 }
             }
         }
         return vector;
     }
-
-    public static void intercambio(int[] vector, int i, int j) {
-        int aux = vector[i];
-        vector[i] = vector[j];
-        vector[j] = aux;
-
-    }
-
 }

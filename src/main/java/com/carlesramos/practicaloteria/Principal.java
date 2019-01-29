@@ -6,17 +6,12 @@ import java.util.Scanner;
 
 public class Principal {
     private static int eleccio;
-    private static int eleccio2;
     private static Scanner lec;
     private static Administracio administracio;
-    private static Sorteig sorteig;
-    private static Terminal terminal;
 
     public static void main(String[] args) {
         administracio = new Administracio();
         lec = new Scanner(System.in);
-        sorteig = new Sorteig();
-        terminal = new Terminal();
         do {
             eleccio = menuInicial();
             if (eleccio == 0){
@@ -103,8 +98,8 @@ public class Principal {
      */
     public static void jugar(){
         do {
-            eleccio2 = menuJugar();
-            switch (eleccio2) {
+            eleccio = menuJugar();
+            switch (eleccio) {
                 case 0://eixir
                     break;
                 case 1:
@@ -123,9 +118,9 @@ public class Principal {
                     administracio.jugarFinsEspecial();
                     break;
             }
-            if (eleccio2<0 || eleccio2>5){
+            if (eleccio<0 || eleccio>5){
                 Lib.mensajeError();
             }
-        }while (eleccio2 != 0);
+        }while (eleccio != 0);
     }
 }
