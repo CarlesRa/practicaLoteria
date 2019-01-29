@@ -4,7 +4,6 @@ import com.carlesramos.practicaloteria.utils.Lib;
 import java.util.Scanner;
 
 public class Administracio {
-    public enum premis{ESPECIAL,PRIMERA,SEGONA,TERCERA,CUARTA,QUINTA,DEVOLUCIÓ_DINES, NO_PREMIAT}
     private Scanner lec;
     private int reintegroJugador;
     private Sorteig sorteig;
@@ -134,7 +133,7 @@ public class Administracio {
     }
 
     /**
-     * jugta fins obtindre premi (sense reintegrament)
+     * juga fins obtindre premi (sense reintegrament)
      */
     public void jugarFinsPremiNoReintegrament(){
         terminal.setEstaPremiat(false);
@@ -183,7 +182,7 @@ public class Administracio {
     }
 
     /**
-     * juga fins que trau un premi especial, i diu les tirades neseçaries per aconseguiro.
+     * juga fins que trau un premi especial, i diu les tirades neseçaries per conseguiro.
      */
     public void jugarFinsEspecial(){
         terminal.setEstaPremiat(false);

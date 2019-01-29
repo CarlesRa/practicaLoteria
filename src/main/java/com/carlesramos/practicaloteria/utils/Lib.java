@@ -7,6 +7,7 @@ import java.util.Random;
 
 public class Lib {
     static  Scanner lec = new Scanner (System.in);
+
     public static  String limpiarPantalla(){
         return "\u001B[H\u001B[2J";
     }
@@ -21,8 +22,8 @@ public class Lib {
 
     public  static void mensajeError(){
 
-        System.out.print(letraRoja()+
-                "Dada erronea..... "+ reiniciarColorLetra() + " Intro per continuar: ");
+        System.out.print(letraRoja()
+        + "Dada erronea..... "+ reiniciarColorLetra() + " Intro per continuar: ");
         lec.nextLine();
     }
 
@@ -40,7 +41,7 @@ public class Lib {
     /**
      * Metode per validar dates.
      * @param fecha entra un string amb la data.
-     * @return
+     * @return retorna un boolean amb el resultat de la validacio
      */
     public static boolean validarFecha(String fecha) {
 
@@ -63,7 +64,12 @@ public class Lib {
 
     }
 
-    //Generar un numero random compres entre dos enters.
+    /**
+     * Genera un numero random compres entre dos enters
+     * @param min li pasem el menor valor
+     * @param max li pasem el maajor valor
+     * @return un numero random
+     */
     public static int random(int min, int max){
         int aleatori;
         Random rnd=new Random();

@@ -5,12 +5,11 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Principal {
-    private static int eleccio;
-    private static int eleccio2;
     private static Scanner lec;
     private static Administracio administracio;
 
     public static void main(String[] args) {
+        int eleccio;
         administracio = new Administracio();
         lec = new Scanner(System.in);
         do {
@@ -26,14 +25,12 @@ public class Principal {
             switch (eleccio) {
                 case 1://Primitiva manual.
                     administracio.primitivaManual();
-
                     System.out.println("Primitiva Generada: " + Arrays.toString(administracio.getBoletoJugador())
                             + " R: "+ administracio.getReintegroJugador());
                     Lib.continuar();
                     break;
                 case 2://primitiva aleatoria
                     administracio.primitivaAleatoria();
-
                     System.out.println("Primitiva Generada: " + Arrays.toString(administracio.getBoletoJugador())
                             + " R: "+ administracio.getReintegroJugador());
                     Lib.continuar();
@@ -52,7 +49,7 @@ public class Principal {
      * mostra el menu inicial
      * @return retorna la eleccio del switch
      */
-    public  static int menuInicial(){
+    private  static int menuInicial(){
         int eleccio;
         do {
             System.out.print(Lib.limpiarPantalla());
@@ -74,7 +71,7 @@ public class Principal {
      * mostra les opcions de joc
      * @returnretorna retorna la elecció del switch
      */
-    public static int menuJugar() {
+    private static int menuJugar() {
         int eleccio;
         do {
             System.out.print(Lib.limpiarPantalla());
@@ -97,7 +94,8 @@ public class Principal {
     /**
      * conte les opcions de joc del menuJugar
      */
-    public static void jugar(){
+    private static void jugar(){
+        int eleccio2;
         do {
             eleccio2 = menuJugar();
             switch (eleccio2) {
