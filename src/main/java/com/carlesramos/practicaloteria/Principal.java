@@ -23,19 +23,13 @@ public class Principal {
                 eleccio = -1;
             }
             switch (eleccio) {
-                case 1://Primitiva manual.
-                    administracio.primitivaManual();
-                    System.out.println("Primitiva Generada: " + Arrays.toString(administracio.getBoletoJugador())
-                            + " R: "+ administracio.getReintegroJugador());
-                    Lib.continuar();
+                case 1:
+                    primitivaManual();
                     break;
-                case 2://primitiva aleatoria
-                    administracio.primitivaAleatoria();
-                    System.out.println("Primitiva Generada: " + Arrays.toString(administracio.getBoletoJugador())
-                            + " R: "+ administracio.getReintegroJugador());
-                    Lib.continuar();
+                case 2:
+                    primitivaAleatoria();
                     break;
-                case 3://Juagar
+                case 3:
                     jugar();
             }
             if (eleccio<0 || eleccio>3){
@@ -89,6 +83,26 @@ public class Principal {
             lec.nextLine();
             return eleccio;
         } while (eleccio >= 0 || eleccio <= 5);
+    }
+
+    /**
+     * fa les accions necesaries per fer una primitiva manual.
+     */
+    private static  void primitivaManual(){
+        administracio.primitivaManual();
+        System.out.println("Primitiva Generada: " + Arrays.toString(administracio.getBoletoJugador())
+        + " R: "+ administracio.getReintegroJugador());
+        Lib.continuar();
+    }
+
+    /**
+     * fa les accions necesaries per fer una primitiva aleatoria.
+     */
+    private static void primitivaAleatoria(){
+        administracio.primitivaAleatoria();
+        System.out.println("Primitiva Generada: " + Arrays.toString(administracio.getBoletoJugador())
+        + " R: "+ administracio.getReintegroJugador());
+        Lib.continuar();
     }
 
     /**

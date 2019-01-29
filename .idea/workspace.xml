@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d5fa5d4-d5f7-4988-a451-aaf8647ecf80" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/carlesramos/practicaloteria/Principal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/carlesramos/practicaloteria/Principal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/carlesramos/practicaloteria/utils/Lib.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/carlesramos/practicaloteria/utils/Lib.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/carlesramos/practicaloteria/Administracio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carlesramos/practicaloteria/Administracio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/carlesramos/practicaloteria/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carlesramos/practicaloteria/Principal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/carlesramos/practicaloteria/Terminal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carlesramos/practicaloteria/Terminal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/carlesramos/practicaloteria/utils/Lib.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carlesramos/practicaloteria/utils/Lib.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -64,10 +54,10 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/carlesramos/practicaloteria/utils/Lib.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="645">
+                <state relative-caret-position="555">
                   <caret line="43" column="65" selection-start-line="43" selection-start-column="65" selection-end-line="43" selection-end-column="65" />
                   <folding>
                     <element signature="imports" expanded="true" />
@@ -169,11 +159,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/carlesramos/practicaloteria/Principal.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="390">
-                  <caret line="26" column="52" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
+                <state relative-caret-position="630">
+                  <caret line="98" column="64" selection-start-line="98" selection-start-column="64" selection-end-line="98" selection-end-column="64" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -188,10 +178,14 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/carlesramos/practicaloteria/Administracio.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2700">
-                  <caret line="184" column="78" selection-start-line="184" selection-start-column="78" selection-end-line="184" selection-end-column="78" />
+                <state relative-caret-position="134">
+                  <caret line="30" column="36" lean-forward="true" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
                   <folding>
                     <element signature="imports" expanded="true" />
+                    <element signature="e#652#653#0" expanded="true" />
+                    <element signature="e#688#689#0" expanded="true" />
+                    <element signature="e#727#728#0" expanded="true" />
+                    <element signature="e#766#767#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -231,9 +225,9 @@
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/com/carlesramos/practicaloteria/Sorteig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/carlesramos/practicaloteria/Terminal.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/carlesramos/practicaloteria/Principal.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/carlesramos/practicaloteria/Administracio.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/carlesramos/practicaloteria/utils/Lib.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/carlesramos/practicaloteria/Principal.java" />
       </list>
     </option>
   </component>
@@ -381,7 +375,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548762425733" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548763111221" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
@@ -401,7 +395,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Principal">
+  <component name="RunManager" selected="Gradle.practicaLoteria [build]">
     <configuration name="Principal" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.carlesramos.practicaloteria.Principal" />
       <module name="gravity.com.carlesramos.main" />
@@ -662,7 +656,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548760122553</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Ara pareix que si!!">
+      <created>1548762496509</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1548762496509</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TodoView">
@@ -742,7 +743,8 @@
     <MESSAGE value="llevem variables duplicades&#10;falta implementar la clase Bombo" />
     <MESSAGE value="poo i mostrar resultats ordenats" />
     <MESSAGE value="finalitzat per ha entregar" />
-    <option name="LAST_COMMIT_MESSAGE" value="finalitzat per ha entregar" />
+    <MESSAGE value="Ara pareix que si!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ara pareix que si!!" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -766,26 +768,39 @@
     <entry file="file://$PROJECT_DIR$/settings.gradle">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/carlesramos/practicaloteria/Principal.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/carlesramos/practicaloteria/utils/Lib.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="52" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
+        <state relative-caret-position="555">
+          <caret line="43" column="65" selection-start-line="43" selection-start-column="65" selection-end-line="43" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#280#281#0" expanded="true" />
+            <element signature="e#322#323#0" expanded="true" />
+            <element signature="e#361#362#0" expanded="true" />
+            <element signature="e#396#397#0" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+            <element signature="e#480#481#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/carlesramos/practicaloteria/Administracio.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/carlesramos/practicaloteria/Sorteig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2169">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+        <state relative-caret-position="-144">
+          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2769#2770#0" expanded="true" />
-            <element signature="e#2805#2806#0" expanded="true" />
-            <element signature="e#2844#2845#0" expanded="true" />
-            <element signature="e#2883#2884#0" expanded="true" />
+            <element signature="e#309#310#0" expanded="true" />
+            <element signature="e#345#346#0" expanded="true" />
+            <element signature="e#411#412#0" expanded="true" />
+            <element signature="e#447#448#0" expanded="true" />
+            <element signature="e#409#410#0" expanded="true" />
+            <element signature="e#445#446#0" expanded="true" />
+            <element signature="e#443#444#0" expanded="true" />
+            <element signature="e#472#473#0" expanded="true" />
+            <element signature="e#583#584#0" expanded="true" />
+            <element signature="e#619#620#0" expanded="true" />
+            <element signature="e#673#674#0" expanded="true" />
+            <element signature="e#723#724#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -836,39 +851,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/carlesramos/practicaloteria/Sorteig.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/carlesramos/practicaloteria/Administracio.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-144">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+        <state relative-caret-position="-2169">
+          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
           <folding>
-            <element signature="e#309#310#0" expanded="true" />
-            <element signature="e#345#346#0" expanded="true" />
-            <element signature="e#411#412#0" expanded="true" />
-            <element signature="e#447#448#0" expanded="true" />
-            <element signature="e#409#410#0" expanded="true" />
-            <element signature="e#445#446#0" expanded="true" />
-            <element signature="e#443#444#0" expanded="true" />
-            <element signature="e#472#473#0" expanded="true" />
-            <element signature="e#583#584#0" expanded="true" />
-            <element signature="e#619#620#0" expanded="true" />
-            <element signature="e#673#674#0" expanded="true" />
-            <element signature="e#723#724#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#2769#2770#0" expanded="true" />
+            <element signature="e#2805#2806#0" expanded="true" />
+            <element signature="e#2844#2845#0" expanded="true" />
+            <element signature="e#2883#2884#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/carlesramos/practicaloteria/utils/Lib.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/carlesramos/practicaloteria/Principal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="65" selection-start-line="43" selection-start-column="65" selection-end-line="43" selection-end-column="65" />
+        <state relative-caret-position="630">
+          <caret line="98" column="64" selection-start-line="98" selection-start-column="64" selection-end-line="98" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#280#281#0" expanded="true" />
-            <element signature="e#322#323#0" expanded="true" />
-            <element signature="e#361#362#0" expanded="true" />
-            <element signature="e#396#397#0" expanded="true" />
-            <element signature="e#446#447#0" expanded="true" />
-            <element signature="e#480#481#0" expanded="true" />
           </folding>
         </state>
       </provider>
