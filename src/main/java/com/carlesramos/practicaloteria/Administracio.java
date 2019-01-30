@@ -3,6 +3,8 @@ package com.carlesramos.practicaloteria;
 import com.carlesramos.practicaloteria.utils.Lib;
 import java.util.Scanner;
 
+
+
 public class Administracio {
     private Scanner lec;
     private int reintegroJugador;
