@@ -5,7 +5,7 @@ import com.carlesramos.practicaloteria.utils.Lib;
 import java.util.Arrays;
 
 public class Terminal {
-    public enum premis{ESPECIAL,PRIMERA,SEGONA,TERCERA,CUARTA,QUINTA,DEVOLUCIÓ_DINES, NO_PREMIAT}
+    public enum premis{ESPECIAL,PRIMERA,SEGONA,TERCERA,CUARTA,QUINTA, DEVOLUCIO_DINERS, NO_PREMIAT}
     private int contadorJugades;
     private int contadorEspecial;
     private int contadorPrimer;
@@ -328,7 +328,7 @@ public class Terminal {
                 System.out.println("Ha eixit: "+Arrays.toString(Lib.ordernaVector(numeroSorteig))
                         + " C:"+ complementari+" R:" + reintegroBombo+ " voste te: "
                         +Arrays.toString(Lib.ordernaVector(boletoJuagador))+ " R:" + reintegroJugador);
-                System.out.println("El seu premi es: " + premis.DEVOLUCIÓ_DINES);
+                System.out.println("El seu premi es: " + premis.DEVOLUCIO_DINERS);
                 break;
             case 8:
                 System.out.println("Ha eixit: "+Arrays.toString(Lib.ordernaVector(numeroSorteig)) + " C:"
